@@ -6,10 +6,10 @@
 
 @section('content')
     <!-- Main content -->
-    <div class="content">
+    <div class="content pt-3">
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
-            <div class="row pt-8">
+            <div class="row">
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
                     <div class="small-box bg-info">
