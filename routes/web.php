@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +14,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Blog
+Route::get('/', function () { return view('welcome'); })->name('welcome');
+Route::get('/submission', function () { return view('blog.submission'); })->name('submission');
+Route::get('/about', function () { return view('blog.about'); })->name('about');
+Route::get('/contact', function () { return view('blog.contact'); })->name('contact');
+Route::get('/privacy', function () { return view('blog.privacy'); })->name('privacy');
+Route::get('/service', function () { return view('blog.service'); })->name('service');
+
+// App
+Route::get('/app', function () { return view('app'); })->name('app');
+
+// Admin
+Route::prefix('dashboard')->middleware(['auth', 'AdminOnly'])->group(function() {
+
+    Route::get('/', function () { return view('dashboard'); })->name('admin');
+
+    // Database
+    Route::get('/users', function () { return view('admin.users.index'); })->name('users');
+    Route::get('/products', function () { return view('admin.products.index'); })->name('products');
+
+    // Content
+    Route::get('/posts', function () { return view('admin.posts.index'); })->name('posts');
+    Route::get('/submissions', function () { return view('admin.submissions.index'); })->name('submissions');
+
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    if (Auth::user()->role == 'admin') {
+        return view('dashboard');
+    }else{
+        return redirect()->route('app');
+    }
+
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

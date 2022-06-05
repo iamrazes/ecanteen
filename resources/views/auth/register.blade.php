@@ -1,59 +1,61 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.auth')
 
+@section('title')
+    <title>eCanteen - Daftar</title>
+@endsection
+
+@section('head')
+@endsection
+
+@section('content')
+    <!-- Authorization -->
+    <div class="flex flex-col md:flex-col justify-center items-center mb-12">
+        <div class="text-[52px] font-bold text-white my-8 "><a href="{{ route('welcome') }}">
+                eCanteen</a>
+        </div>
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
+            <div class="container w-[300px] md:w-[380px] px-3 py-3 bg-white rounded-md shadow-xl">
+                <div class="flex flex-col gap-2">
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
+                    <p class="text-sm text-slate-500">Nama Lengkap</p>
+                    <input class="border border-gray-300 rounded-lg h-[32px] text-gray-600 text-sm px-2" type="text"
+                        id='name' name='name'>
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
-            </div>
+                    <p class="text-sm text-slate-500">Nama Panggilan</p>
+                    <input class="border border-gray-300 rounded-lg h-[32px] text-gray-600 text-sm px-2" type="text"
+                        id='nickname' name='nickname' maxlength="9">
 
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
+                    <p class="text-sm text-slate-500">Email</p>
+                    <input class="border border-gray-300 rounded-lg h-[32px] text-gray-600 text-sm px-2" type="email"
+                        id='email' name='email'>
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
+                    <p class="text-sm text-slate-500">NIM</p>
+                    <input class="border border-gray-300 rounded-lg h-[32px] text-gray-600 text-sm px-2" type="number"
+                        id='nim' name='nim'>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+                    <p class="text-sm text-slate-500">Password</p>
+                    <input class="border border-gray-300 rounded-lg h-[32px] text-gray-600 text-sm px-2" type="password"
+                        id='password' name='password'>
 
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
+                    <p class="text-sm text-slate-500">Konfirmasi Password</p>
+                    <input class="border border-gray-300 rounded-lg h-[32px] text-gray-600 text-sm px-2" type="password"
+                        id='password_confirmation' name='password_confirmation'>
 
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                </div>
+                <div class="flex flex-col items-center mt-4">
+                    <button
+                        class="rounded-lg bg-gradient-to-r from-[#72c2ff] to-[#7277ff] font-semibold text-white w-[108px] h-[38px]"
+                        href="{{ __('Register') }}">Daftar</button>
 
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
+                    <p class="text-[12px] text-slate-500 mt-3 text-center">Sudah mempunyai akun eCanteen? lakukan <span><a
+                                href="{{ route('login') }}" class="font-semibold text-blue-500">Login</a></span> untuk
+                        menggunakan eCanteen!</p>
+                </div>
         </form>
-    </x-auth-card>
-</x-guest-layout>
+    </div>
+    </div>
+@endsection
