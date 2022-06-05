@@ -28,6 +28,8 @@
         </div>
         {{-- content-wrapper --}}
 
+        <x-admin.footer />
+
         <form action="{{ route('logout') }}" method="post" id="logoutForm">
             @csrf
         </form>

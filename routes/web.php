@@ -26,7 +26,7 @@ Route::get('/service', function () { return view('blog.service'); })->name('serv
 Route::get('/app', function () { return view('app'); })->name('app');
 
 // Admin
-Route::prefix('dashboard')->middleware(['auth', 'AdminOnly'])->group(function() {
+Route::prefix('dashboard')->middleware(['auth'])->group(function() {
 
     Route::get('/', function () { return view('dashboard'); })->name('admin');
 
