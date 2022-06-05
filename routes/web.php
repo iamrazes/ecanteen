@@ -46,7 +46,6 @@ Route::get('/dashboard', function () {
     }else{
         return redirect()->route('app');
     }
-
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
