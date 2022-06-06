@@ -13,10 +13,10 @@
             <a href="{{ url()->previous() }}"><span class="fa fa-arrow-left text-lg"></span></a>
             <a href="{{route('app')}}"><span class="fa fa-home text-lg"></span></a>
         </div>
-        <div class="rounded-xl border shadow-xl px-4 pt-2 pb-4 bg-white">
+        <div class="rounded-xl  shadow-xl px-4 pt-2 pb-4 bg-white">
             <div
                 class="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start py-4 gap-4">
-                <div class="flex border-4 rounded-xl">
+                <div class="flex border-4 border-blue-300 rounded-xl bg-blue-300">
                     <img src="{{ asset('storage/ProductCoverImages/' . $product->cover) }}" alt=""
                         class="rounded-lg w-[300px] h-[300px] md:w-[380px] md:h-[380px] lg:w-[420px] lg:h-[420px] object-cover">
                 </div>

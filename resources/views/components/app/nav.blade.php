@@ -3,14 +3,14 @@
         <div class="flex flex-col md:items-center md:flex-row">
 
             <!-- Logo -->
-            <div class="invisible md:visible font-semibold text-xl">
+            <div class="flex items-center invisible md:visible font-bold text-xl">
                 <a href="{{ route('app') }}">eCanteen</a>
             </div>
 
             <!-- Search bar -->
             <div class="flex justify-center -mt-3 grow mb-1 px-2 md:mt-1">
                 <input type="text" placeholder=""
-                    class="px-2 rounded-lg text-sm border-white text-slate-500 h-[32px] w-[240px] md:w-[400px] lg:w-[600px] object-cover mx-2">
+                    class="px-2 rounded-lg text-sm border-white text-slate-500 h-[32px] w-[300px] md:w-[400px] lg:w-[600px] object-cover mx-2">
                 <button class="text-lg fa fa-search"></button>
             </div>
 

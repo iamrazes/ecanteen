@@ -51,15 +51,13 @@
                                 <div class="flex flex-wrap justify-center mb-2 mt-3 mx-2">
                                     <a
                                         href="{{route('show', ['category' => $product->category, 'name' => $product->name])}}"
-                                        class="flex items-center justify-center bg-gradient-to-r from-[#72c2ff] to-[#7277ff] text-white text-sm rounded-md h-[32px] w-[128px]"><span class="fa fa-shopping-cart"></span>
+                                        class="flex items-center justify-center bg-gradient-to-r from-[#72c2ff] to-[#7277ff] hover:bg-white text-white text-sm rounded-md h-[32px] w-[128px]"><span class="fa fa-shopping-cart"></span>
                                     </a>
                                 </div>
                             </div>
                             @endforeach
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>
@@ -92,9 +90,7 @@
                             </div>
                             @endforeach
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>
@@ -126,11 +122,8 @@
                                 </div>
                             </div>
                             @endforeach
-
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>

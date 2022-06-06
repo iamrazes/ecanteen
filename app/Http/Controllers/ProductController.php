@@ -66,7 +66,7 @@ class ProductController extends Controller
             'status'=> $request->status,
             ]);
 
-        return redirect()->route('products');
+        return redirect()->route('products')->with('status', 'Data has been Added!');
     }
 
     /**
