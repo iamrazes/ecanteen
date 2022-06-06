@@ -13,7 +13,73 @@
 
 @section('content')
 
+ <!-- Content Header (Page header) -->
+ <div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">PRODUCTS</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
+                    <li class="breadcrumb-item active">Database</li>
+                    <li class="breadcrumb-item active">Product - Create</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
 
+<!-- Main content -->
+<div class="content">
+    <div class="card card-primary card-outline">
+        <h3 class="mt-3 ml-4 card-title">Add New Product</h3>
+        <div class="card-body">
+            <form action="{{route('admin.products.save')}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="form-group">
+                    <input type="text" id="nama" name="name" class="form-control" placeholder="Product Name...">
+                </div>
+                <div class="form-group">
+                    <p>Category :
+                        <select name="category" id="category" class="btn btn-white rounded border">
+                            <option value="Makanan">Makanan</option>
+                            <option value="Minuman">Minuman</option>
+                            <option value="Lainnya">Lainnya</option>
+                        </select>
+                    </p>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="nama" name="price" class="form-control" placeholder="Price...">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="nama" name="stock" class="form-control" placeholder="Stock...">
+                </div>
+                <div class="form-group">
+                    <textarea type="text" id="nama" name="description" class="form-control" placeholder="Product Description..."></textarea>
+                </div>
+                <div class="form-group">
+                    <p>Pictures :
+                        <input type="file" id="nama" name="cover" class="" placeholder="Cover...">
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>Status :
+                        <select name="status" id="status" class="btn btn-white rounded border">
+                            <option value="Available">Available</option>
+                            <option value="Not Available">Not Available</option>
+                        </select>
+                    </p>
+                </div>
+
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /.content -->
 
 @endsection
 

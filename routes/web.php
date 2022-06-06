@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,13 +27,20 @@ Route::get('/service', function () { return view('blog.service'); })->name('serv
 Route::get('/app', function () { return view('app'); })->name('app');
 
 // Admin
-Route::prefix('dashboard')->middleware(['auth'])->group(function() {
+Route::prefix('dashboard')->middleware(['auth', 'AdminOnly'])->group(function() {
 
     Route::get('/', function () { return view('dashboard'); })->name('admin');
 
     // Database
     Route::get('/users', function () { return view('admin.users.index'); })->name('users');
-    Route::get('/products', function () { return view('admin.products.index'); })->name('products');
+
+    Route::get('/products', function () {
+        return view('admin.products.index');
+    })->name('products');
+    Route::get('/products', [ProductController::class, 'index'])->name('products');
+    Route::get('/products-create', [ProductController::class, 'create'])->name('admin.products.create');
+    Route::post('/products-save', [ProductController::class, 'store'])->name('admin.products.save');
+    Route::delete('/products-delete/{id}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
 
     // Content
     Route::get('/posts', function () { return view('admin.posts.index'); })->name('posts');

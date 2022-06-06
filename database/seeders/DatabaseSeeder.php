@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
+use App\Models\Product;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -41,6 +42,26 @@ class DatabaseSeeder extends Seeder
             'nim' => '54321',
             'password' => Hash::make('password'),
             'role' => 'buyer',
+        ]);
+
+        Product::create([
+            'cover' => 'NULL',
+            'name' => 'EXTRA JOSS',
+            'category' => 'Minuman',
+            'price' => '100000',
+            'stock' => '99',
+            'description' => 'Description',
+            'status' => 'Available',
+        ]);
+
+        Product::create([
+            'cover' => 'NULL',
+            'name' => 'BENGBENG',
+            'category' => 'Makanan',
+            'price' => '100000',
+            'stock' => '99',
+            'description' => 'Description',
+            'status' => 'Available',
         ]);
     }
 }

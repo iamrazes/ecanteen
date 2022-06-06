@@ -18,7 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::all();
+        $dtproduct = Product::all();
         return view('admin.products.index',compact('dtproduct'));
     }
 
@@ -41,15 +41,18 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'cover' => ['required', 'image']
+            'cover' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg']
         ]);
 
-         //  dd($request->all());
+        //   dd($request->all());
 
          $randomString = Str::random(10);
          $imgName = $randomString . str_replace(' ', '-', $request->file('cover')->getClientOriginalName());
          $dir = 'public/ProductCoverImages';
-         // dd($imgName);
+        //   dd($imgName);
+
+         $request->file('cover')->storeAs($dir, $imgName);
+         $request->file('cover')->move(public_path('storage/ProductCoverImages'), $imgName);
 
          Product::create([
             'name' => $request->name,
@@ -61,9 +64,7 @@ class ProductController extends Controller
             'status'=> $request->status,
             ]);
 
-         $request->file('cover')->storeAs($dir, $imgName);
-
-        return redirect()->route('admin.products');
+        return redirect()->route('products');
     }
 
     /**
@@ -116,6 +117,6 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return redirect()->route('admin.products')->with('status', 'Data has been removed!');
+        return redirect()->route('products')->with('status', 'Data has been removed!');
     }
 }

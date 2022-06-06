@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('category');
+            $table->enum('category', ['Makanan', 'Minuman', 'Lainnya']);
             $table->string('price');
             $table->string('stock');
             $table->longText('description');
