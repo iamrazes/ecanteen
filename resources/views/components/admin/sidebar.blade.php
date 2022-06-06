@@ -36,7 +36,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('products') }}" class="nav-link {{ request()->routeIs('products') ? 'active' : '' }}">
+                    <a href="{{ auth()->user()->role == 'admin' ? route('products') : route('dashboardSeller.products') }}" class="nav-link {{ request()->routeIs('products') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-box"></i>
                         <p>
                             Products

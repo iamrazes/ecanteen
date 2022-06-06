@@ -54,7 +54,7 @@ class ProductController extends Controller
         //   dd($imgName);
 
          $request->file('cover')->storeAs($dir, $imgName);
-         $request->file('cover')->move(public_path('storage/ProductCoverImages'), $imgName);
+        //  $request->file('cover')->move(public_path('storage/ProductCoverImages'), $imgName);
 
          Product::create([
             'name' => $request->name,
