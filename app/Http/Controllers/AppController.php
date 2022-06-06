@@ -18,8 +18,7 @@ class AppController extends Controller
     public function index()
     {
         $productsNewest = Product::latest()->limit(5)->get();
-        $productsOldest = Product::Oldest()->limit(5)->get();
-        return view('app',compact('productsNewest', 'productsOldest'));
+        return view('app',compact('productsNewest'));
     }
 
     /**
@@ -52,8 +51,9 @@ class AppController extends Controller
     public function show($category, $name)
     {
         $product = Product::where(['category' => $category, 'name' => $name])->first();
+        $productsNewest = Product::latest()->limit(6)->get();
+        return view('app.view',compact('product','productsNewest'));
 
-        return view('app.view',compact('product'));
     }
 
     /**

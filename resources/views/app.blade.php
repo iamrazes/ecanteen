@@ -43,7 +43,7 @@
                         </div>
                         <div class="grid grid-cols-2 md:grid-cols-5 px-2 -ml-60 md:-ml-32 mt-8 md:mt-6 gap-2 md:gap-3 pr-3">
                             @foreach ( $productsNewest as $product )
-                            <div class="bg-white md:rounded-b-lg rounded-b-md shadow rounded-t-lg">
+                            <div class="flex flex-col justify-between bg-white border md:rounded-b-lg rounded-b-md shadow rounded-t-lg">
                                 <img src="{{ asset('storage/ProductCoverImages/' . $product->cover) }}" alt=""
                                     class="rounded-br-xl rounded-t-lg object-cover h-[160px] w-[620px] md:h-[120px] md:w-[720px] lg:h-[200px]">
                                 <p class="px-2 pt-2 font-semibold text-[14px]">{{$product->name}}</p>
@@ -78,7 +78,7 @@
                         </div>
                         <div class="grid grid-cols-2 md:grid-cols-5 px-2 -ml-60 md:-ml-32 mt-8 md:mt-6 gap-2 md:gap-3 pr-3">
                             @foreach ( $productsNewest as $product )
-                            <div class="bg-white md:rounded-b-lg rounded-b-md shadow rounded-t-lg">
+                            <div class="flex flex-col justify-between bg-white md:rounded-b-lg border rounded-b-md shadow rounded-t-lg">
                                 <img src="{{ asset('storage/ProductCoverImages/' . $product->cover) }}" alt=""
                                     class="rounded-br-xl rounded-t-lg object-cover h-[160px] w-[620px] md:h-[120px] md:w-[720px] lg:h-[200px]">
                                 <p class="px-2 pt-2 font-semibold text-[14px]">{{$product->name}}</p>
@@ -112,8 +112,8 @@
                             <img class="" src="{{ asset('img/trending.png') }}" alt="">
                         </div>
                         <div class="grid grid-cols-2 md:grid-cols-5 px-2 -ml-60 md:-ml-32 mt-8 md:mt-6 gap-2 md:gap-3 pr-3">
-                            @foreach ( $productsOldest as $product )
-                            <div class="bg-white md:rounded-b-lg rounded-b-md shadow rounded-t-lg">
+                            @foreach ( $productsNewest as $product )
+                            <div class="flex flex-col justify-between bg-white md:rounded-b-lg border rounded-b-md shadow rounded-t-lg">
                                 <img src="{{ asset('storage/ProductCoverImages/' . $product->cover) }}" alt=""
                                     class="rounded-br-xl rounded-t-lg object-cover h-[160px] w-[620px] md:h-[120px] md:w-[720px] lg:h-[200px]">
                                 <p class="px-2 pt-2 font-semibold text-[14px]">{{$product->name}}</p>
@@ -126,6 +126,7 @@
                                 </div>
                             </div>
                             @endforeach
+
                         </div>
 
                     </div>

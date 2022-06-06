@@ -77,16 +77,16 @@
                                             <td>{{ $item->category }}</td>
                                             <td>{{ $item->price }}</td>
                                             <td>{{ $item->stock }}</td>
-                                            <td>{{ $item->description }}</td>
+                                            <td class="">{{ $item->description }}</td>
                                             <td>{{ $item->status }}</td>
                                             <td class="flex row">
                                                 <form action="{{ route('admin.products.destroy', $item->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button class="btn btn-danger " style="width:45px" type="submit"><span class="fas fa-trash"></span></button>
+                                                    <button class="ml-2 btn btn-danger mt-1" style="width:45px" type="submit"><span class="fas fa-trash"></span></button>
                                                 </form>
-                                                <a href="" class="btn btn-secondary ml-2 " style="width:45px" type="submit"><span class="fas fa-edit"></a>
-                                                <a href="" class="btn btn-primary ml-2 " style="width:45px" type="submit"><span class="fas fa-eye"></a>
+                                                <a href="" class="btn btn-secondary ml-2 mt-1" style="width:45px" type="submit"><span class="fas fa-edit"></a>
+                                                <a href="" class="btn btn-primary ml-2 mt-1" style="width:45px" type="submit"><span class="fas fa-eye"></a>
                                             </td>
                                         </tr>
                                     @endforeach

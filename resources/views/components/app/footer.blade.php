@@ -21,7 +21,7 @@
                         <span><a class="text-white hover:text-indigo-300" href="{{ route('service') }}">Sayarat dan Ketentuan</a></span>
                         <span><a class="text-white hover:text-indigo-300" href="{{ route('submission') }}">Pengajuan Dagangan</a></span>
                         <span><a class="text-white hover:text-indigo-300" href="{{ route('about') }}">Tentang Kami</a></span>
-                        <span class="mb-3 md:mb-8" ><a href="{{ route('contact') }}"  class="text-white">Kontak</a></span>
+                        <span class="mb-3 md:mb-8" ><a href="{{ route('contact') }}"  class="text-white hover:text-indigo-300">Kontak</a></span>
                         <h1 class="font-semibold text-white border-b border-blue-200">Sosial Media</h1>
                         <span><a class="text-white hover:text-indigo-300" href="https://www.facebook.com">Facebook</a></span>
                         <span><a class="text-white hover:text-indigo-300" href="https://www.instagram.com">Instagram</a></span>
