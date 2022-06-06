@@ -19,7 +19,8 @@
 
     @yield('content')
 
+    <x-app.footer />
 
 </body>
-
+    @yield('script')
 </html>
