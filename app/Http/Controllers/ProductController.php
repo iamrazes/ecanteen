@@ -21,6 +21,7 @@ class ProductController extends Controller
     {
         $dtproduct = Product::all();
         return view('admin.products.index',compact('dtproduct'));
+
     }
 
     /**

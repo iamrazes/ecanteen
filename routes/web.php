@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AppController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,11 @@ Route::get('/privacy', function () { return view('blog.privacy'); })->name('priv
 Route::get('/service', function () { return view('blog.service'); })->name('service');
 
 // App
-Route::get('/app', function () { return view('app'); })->name('app');
+Route::get('/app', [AppController::class, 'index'])->name('app');
+
+Route::prefix('app')->group(function() {
+    Route::get('/products/{category}/{name}', [AppController::class, 'show'])->name('show');
+});
 
 // Admin
 Route::prefix('dashboard')->middleware(['auth', 'AdminOnly'])->group(function() {
