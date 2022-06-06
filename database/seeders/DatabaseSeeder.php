@@ -44,24 +44,5 @@ class DatabaseSeeder extends Seeder
             'role' => 'buyer',
         ]);
 
-        Product::create([
-            'cover' => 'NULL',
-            'name' => 'EXTRA JOSS',
-            'category' => 'Minuman',
-            'price' => '100000',
-            'stock' => '99',
-            'description' => 'Description',
-            'status' => 'Available',
-        ]);
-
-        Product::create([
-            'cover' => 'NULL',
-            'name' => 'BENGBENG',
-            'category' => 'Makanan',
-            'price' => '100000',
-            'stock' => '99',
-            'description' => 'Description',
-            'status' => 'Available',
-        ]);
     }
 }

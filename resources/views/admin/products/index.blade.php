@@ -85,9 +85,8 @@
                                                     @method('DELETE')
                                                     <button class="btn btn-danger " style="width:45px" type="submit"><span class="fas fa-trash"></span></button>
                                                 </form>
-                                                <button class="btn btn-secondary ml-2 " style="width:45px" type="submit"><span class="fas fa-edit"></button>
-
-                                                <button class="btn btn-primary ml-2 " style="width:45px" type="submit"><span class="fas fa-eye"></button>
+                                                <a href="" class="btn btn-secondary ml-2 " style="width:45px" type="submit"><span class="fas fa-edit"></a>
+                                                <a href="" class="btn btn-primary ml-2 " style="width:45px" type="submit"><span class="fas fa-eye"></a>
                                             </td>
                                         </tr>
                                     @endforeach

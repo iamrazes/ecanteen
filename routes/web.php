@@ -29,8 +29,6 @@ Route::get('/app', function () { return view('app'); })->name('app');
 // Admin
 Route::prefix('dashboard')->middleware(['auth', 'AdminOnly'])->group(function() {
 
-    Route::get('/', function () { return view('dashboard'); })->name('admin');
-
     // Database
     Route::get('/users', function () { return view('admin.users.index'); })->name('users');
 
@@ -41,6 +39,8 @@ Route::prefix('dashboard')->middleware(['auth', 'AdminOnly'])->group(function() 
     Route::get('/products-create', [ProductController::class, 'create'])->name('admin.products.create');
     Route::post('/products-save', [ProductController::class, 'store'])->name('admin.products.save');
     Route::delete('/products-delete/{id}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
+    // Route::get('/products-edit', [ProductController::class, 'edit'])->name('admin.products.edit');
+    // Route::post('/products-update', [ProductController::class, 'update'])->name('admin.products.update');
 
     // Content
     Route::get('/posts', function () { return view('admin.posts.index'); })->name('posts');

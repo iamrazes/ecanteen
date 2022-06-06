@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+
 class ProductController extends Controller
 {
     /**
@@ -86,7 +87,6 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
     }
 
     /**
@@ -96,9 +96,8 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(Request $request, Product $product)
     {
-        //
     }
 
     /**

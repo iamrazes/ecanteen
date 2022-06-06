@@ -64,6 +64,7 @@
                     <p>Pictures :
                         <input type="file" id="nama" name="cover" class="" placeholder="Cover...">
                     </p>
+                    <p class="text-sm">*Upload Image with 1x1 ratio</p>
                 </div>
                 <div class="form-group">
                     <p>Status :
