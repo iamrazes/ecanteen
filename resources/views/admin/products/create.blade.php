@@ -37,7 +37,7 @@
     <div class="card card-primary card-outline">
         <h3 class="mt-3 ml-4 card-title">Add New Product</h3>
         <div class="card-body">
-            <form action="{{route('admin.products.save')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{ auth()->user()->role == 'admin' ? route('admin.products.save') : route('dashboardSeller.admin.products.save') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <input type="text" id="nama" name="name" class="form-control" placeholder="Product Name...">

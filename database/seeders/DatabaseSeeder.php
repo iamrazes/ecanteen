@@ -44,5 +44,15 @@ class DatabaseSeeder extends Seeder
             'role' => 'buyer',
         ]);
 
+        Product::create([
+            'name' => 'Product A',
+            'cover' => 'NULL',
+            'category' => 'Makanan',
+            'description' => 'Makanan',
+            'price' => '1000',
+            'stock' => '1',
+            'status' => 'Available',
+        ]);
+
     }
 }

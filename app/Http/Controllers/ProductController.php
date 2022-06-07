@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 
@@ -66,7 +67,10 @@ class ProductController extends Controller
             'status'=> $request->status,
             ]);
 
-        return redirect()->route('products')->with('status', 'Data has been Added!');
+        if (Auth::user()->role == 'admin') return redirect()->route('products')->with('status', 'Data has been Added!');
+        else
+        if (Auth::user()->role == 'seller') return redirect()->route('dashboardSeller.products')->with('status', 'Data has been Added!');
+
     }
 
     /**
@@ -117,6 +121,9 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return redirect()->route('products')->with('status', 'Data has been removed!');
+        if (Auth::user()->role == 'admin') return redirect()->route('products')->with('status', 'Data has been removed!');
+        else
+        if (Auth::user()->role == 'seller') return redirect()->route('dashboardSeller.products')->with('status', 'Data has been removed!');
+
     }
 }

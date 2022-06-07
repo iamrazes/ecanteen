@@ -18,7 +18,6 @@ class AppController extends Controller
     public function index()
     {
         $productsNewest = Product::latest()->limit(5)->get();
-
         $foods = Product::where('category', 'Makanan')->latest()->limit(5)->get();
         $drinks = Product::where('category', 'Minuman')->latest()->limit(5)->get();
         return view('app',compact('productsNewest', 'foods', 'drinks'));
