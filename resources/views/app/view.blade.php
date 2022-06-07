@@ -32,7 +32,7 @@
                             <p>Stock : <span class="font-semibold">{{$product->stock}}</span></p>
                         </div>
                         <div class="flex flex-col items-center mb-2 mt-4">
-                            <a
+                            <a href="{{ route('transaction') }}"
                                 class="bg-gradient-to-r from-[#72c2ff] to-[#7277ff] text-white mt-4 px-4 py-2 rounded-md"><span class="fa fa-shopping-cart pr-2"></span>BELI
                                 SEKARANG</a>
                             <a href="{{route('app')}}" class="text-sm mt-2 text-gray-400">Kembali ke Beranda</a>

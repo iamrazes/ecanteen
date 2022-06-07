@@ -73,7 +73,7 @@
                                     <td>{{ $item->nickname }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->nim }}</td>
-                                    <td>{{ $item->saldo }}</td>
+                                    <td>{{ number_format($item->saldo, 0, '.','.'), $item->saldo }}</td>
                                     <td>{{ $item->role }}</td>
                                     <td>{{ $item->created_at }}</td>
                                     <td class="flex row">

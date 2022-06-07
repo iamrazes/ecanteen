@@ -48,26 +48,36 @@ Route::prefix('app')->group(function () {
 Route::prefix('dashboard')->middleware(['auth', 'AdminOnly'])->group(function () {
 
     // Database
-    Route::get('/users', function () {
-        return view('admin.users.index');
-    })->name('users');
-    Route::get('/users', [UserController::class, 'index'])->name('users');
-    Route::get('/users-create', [UserController::class, 'create'])->name('admin.users.create');
-    Route::post('/users-save', [UserController::class, 'store'])->name('admin.users.save');
-    Route::delete('/users-delete/{id}', [UserController::class, 'destroy'])->name('admin.users.destroy');
-    Route::get('/users-edit/{id}', [UserController::class, 'edit'])->name('admin.users.edit');
-    Route::patch('/users-update/{id}', [UserController::class, 'edit'])->name('admin.users.update');
+    Route::resource('/users', UserController::class)->names([
+        'index'=>'users',
+        'create'=>'admin.users.create',
+        'store'=>'admin.users.save',
+        'destroy'=>'admin.users.destroy',
+        'edit'=>'admin.users.edit',
+        'update'=>'admin.users.update'
+    ]);
 
-    Route::get('/products', function () {
-        return view('admin.products.index');
-    })->name('products');
-    Route::get('/products', [ProductController::class, 'index'])->name('products');
-    Route::get('/products-create', [ProductController::class, 'create'])->name('admin.products.create');
-    Route::post('/products-save', [ProductController::class, 'store'])->name('admin.products.save');
-    Route::delete('/products-delete/{id}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
+    Route::resource('/products', ProductController::class)->names([
+        'index'=>'products',
+        'create'=>'admin.products.create',
+        'store'=>'admin.products.save',
+        'destroy'=>'admin.products.destroy',
+        'edit'=>'admin.products.edit',
+        'update'=>'admin.products.update'
+    ]);
+
+    // Route::resource('/users-create', [UserController::class, 'create'])->names('admin.users.create');
+    // Route::post('/users-save', [UserController::class, 'store'])->names('admin.users.save');
+    // Route::delete('/users-delete/{id}', [UserController::class, 'destroy'])->names('admin.users.destroy');
+    // Route::resource('/users-edit/{id}', [UserController::class, 'edit'])->names('admin.users.edit');
+    // Route::put('/users-update/{id}', [UserController::class, 'update'])->names('admin.users.update');
+
+    // Route::resource('/products', [ProductController::class, 'index'])->names('products');
+    // Route::resource('/products-create', [ProductController::class, 'create'])->names('admin.products.create');
+    // Route::post('/products-save', [ProductController::class, 'store'])->names('admin.products.save');
+    // Route::delete('/products-delete/{id}', [ProductController::class, 'destroy'])->names('admin.products.destroy');
     // Route::get('/products-edit', [ProductController::class, 'edit'])->name('admin.products.edit');
     // Route::post('/products-update', [ProductController::class, 'update'])->name('admin.products.update');
-
 
     // Content
     Route::get('/posts', function () {

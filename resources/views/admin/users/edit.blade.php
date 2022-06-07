@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-<title>eCanteen - Users</title>
+    <title>eCanteen - Users</title>
 @endsection
 
 @section('head')
@@ -12,78 +12,100 @@
 @endsection
 
 @section('content')
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">USERS</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
+                        <li class="breadcrumb-item active">Database</li>
+                        <li class="breadcrumb-item active">Users - Edit</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
- <!-- Content Header (Page header) -->
- <div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0">USERS</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
-                    <li class="breadcrumb-item active">Database</li>
-                    <li class="breadcrumb-item active">Users - Create</li>
-                </ol>
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-</div>
-<!-- /.content-header -->
+    <!-- Main content -->
+    <div class="content">
+        <div class="card card-primary card-outline">
+            <h3 class="mt-3 ml-4 card-title">Edit Users</h3>
+            <div class="card-body">
+                <form action="{{ route('admin.users.update', $dtusers->id) }}" method="POST"
+                    enctype="multipart/form-data">
+                    @csrf
+                    @method('PATCH')
+                    <div class="form-group">
+                        <input type="text" id="nama" name="name" class="form-control"  placeholder="Nama..." autocomplete="off"
+                            value="{{ $dtusers->name }}">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="nama" name="nickname" class="form-control" placeholder="Nickname..." autocomplete="off"
+                            value="{{ $dtusers->nickname }}">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" type="email" name="email" class="form-control" placeholder="Email..." autocomplete="off"
+                            value="{{ $dtusers->email }}">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="nama" name="nim" class="form-control" placeholder="Nim..." autocomplete="off"
+                            value="{{ $dtusers->nim }}">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" type="password" name="password" class="form-control" placeholder="Password..." autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <p>Role :
+                            <select name="role" id="role" class="btn btn-white rounded border">
+                                <option value="admin" {{ $dtusers->role == 'admin' ? 'selected' : '' }}>Admin</option>
+                                <option value="seller" {{ $dtusers->role == 'seller' ? 'selected' : '' }}>Seller
+                                </option>
+                                <option value="buyer" {{ $dtusers->role == 'buyer' ? 'selected' : '' }}>Buyer</option>
+                            </select>
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="saldo" name="saldo" class="form-control grid-link__org_price" autocomplete="off" placeholder="Saldo..."
+                            value="{{ $dtusers->saldo }}">
+                        <div class="mt-3">
+                            <p>Tentukan Saldo :</p>
+                            <button class="btn btn-info" id="10k">10K</button>
+                            <button class="btn btn-primary" id="50k">50K</button>
+                            <button class="btn btn-danger" id="100k">100K</button>
+                        </div>
+                        <div>
+                            <p>Tambah Saldo :</p>
+                            <button class="btn btn-info" id="tambah10k">+10K</button>
+                            <button class="btn btn-primary" id="tambah50k">+50K</button>
+                            <button class="btn btn-danger" id="tambah100k">+100K</button>
+                        </div>
+                    </div>
 
-<!-- Main content -->
-<div class="content">
-    <div class="card card-primary card-outline">
-        <h3 class="mt-3 ml-4 card-title">Add New Users</h3>
-        <div class="card-body">
-            <form action="{{route('admin.users.update',$dtusers->id)}}" method="POST" enctype="multipart/form-data">
-                @csrf
-                @method('PATCH')
-                <div class="form-group">
-                    <input type="text" id="nama" name="name" class="form-control" placeholder="Nama..." value="{{ $dtusers->name }}">
-                </div>
-                <div class="form-group">
-                    <input type="text" id="nama" name="nickname" class="form-control" placeholder="Nickname..." value="{{ $dtusers->nickname }}">
-                </div>
-                <div class="form-group">
-                    <input type="text" type="email" name="email" class="form-control" placeholder="Email..." value="{{ $dtusers->email }}">
-                </div>
-                <div class="form-group">
-                    <input type="text" id="nama" name="nim" class="form-control" placeholder="Nim..." value="{{ $dtusers->nim }}">
-                </div>
-                <div class="form-group">
-                    <input type="text" type="password" name="password" class="form-control" placeholder="Password..." >
-                </div>
-                <div class="form-group">
-                    <p>Role :
-                        <select name="role" id="role" class="btn btn-white rounded border">
-                            <option value="Admin" {{  $dtusers->role == 'admin' ? 'selected' : '' }}>Admin</option>
-                            <option value="Seller" {{  $dtusers->role == 'seller' ? 'selected' : '' }}>Seller</option>
-                            <option value="Buyer" {{  $dtusers->role == 'buyer' ? 'selected' : '' }}>Buyer</option>
-                        </select>
-                    </p>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="saldo" name="saldo" class="form-control" placeholder="Saldo..." value="{{ $dtusers->saldo }}">
-                    <button id="50k">50k</button>
-                    <button id="100k">100k</button>
-                </div>
-
-                <button type="submit" class="btn btn-success">Submit</button>
-            </form>
+                    <button id="name" type="submit" class="btn btn-success">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-<!-- /.content -->
-
+    <!-- /.content -->
 @endsection
 
 @section('script')
+    {{-- Tombol Tampan --}}
     <script>
+        const saldo10k = document.getElementById('10k')
         const saldo50k = document.getElementById('50k')
         const saldo100k = document.getElementById('100k')
         const saldo = document.getElementById('saldo')
+
+        saldo10k.addEventListener('click', (e) => {
+            e.preventDefault()
+            saldo.value = '10000'
+        })
 
         saldo50k.addEventListener('click', (e) => {
             e.preventDefault()
@@ -95,6 +117,34 @@
             saldo.value = '100000'
         })
     </script>
+
+    <script>
+        const tambah10k = document.getElementById('tambah10k')
+        const tambah50k = document.getElementById('tambah50k')
+        const tambah100k = document.getElementById('tambah100k')
+        // const saldo = document.getElementById('saldo')
+
+        tambah10k.addEventListener('click', (e) => {
+            e.preventDefault()
+            let saldoSekarang = parseFloat(saldo.value);
+            let saldoTambahan = parseFloat(10000);
+            saldo.value = saldoSekarang + saldoTambahan;
+        })
+
+        tambah50k.addEventListener('click', (e) => {
+            e.preventDefault()
+            let saldoSekarang = parseFloat(saldo.value);
+            let saldoTambahan = parseFloat(50000);
+            saldo.value = saldoSekarang + saldoTambahan;
+        })
+        tambah100k.addEventListener('click', (e) => {
+            e.preventDefault()
+            let saldoSekarang = parseFloat(saldo.value);
+            let saldoTambahan = parseFloat(100000);
+            saldo.value = saldoSekarang + saldoTambahan;
+        })
+    </script>
+
 
     <!-- DataTables  & Plugins -->
     <script src="{{ asset('AdminLTE/plugins/datatables/jquery.dataTables.min.js') }}"></script>

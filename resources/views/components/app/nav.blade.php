@@ -22,11 +22,11 @@
                             <div class=" md:invisible">
                                 <p class="text-sm">Halo, kak <span
                                         class="font-semibold hover:text-indigo-400 transition delay-50 duration-300 "><a
-                                            href="">{{ Auth::user()->nickname }}</a></span></p>
+                                            href="{{ route('profile') }}">{{ Auth::user()->nickname }}</a></span></p>
                             </div>
                             <div class="flex justify-center gap-6">
                                 <a class="text-lg fa fa-bucket hover:text-indigo-400"></a>
-                                <a class="text-lg fa fa-user hover:text-indigo-400"></a>
+                                <a href="{{ route('profile') }}" class="text-lg fa fa-user hover:text-indigo-400"></a>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
 
