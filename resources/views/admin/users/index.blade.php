@@ -56,6 +56,7 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Name</th>
                                 <th>Nickname</th>
                                 <th>Email</th>
@@ -69,6 +70,7 @@
                         <tbody>
                             @foreach ($dtusers as $item)
                                 <tr>
+                                    <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->nickname }}</td>
                                     <td>{{ $item->email }}</td>
@@ -90,6 +92,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
+                                <th>ID</th>
                                 <th>Name</th>
                                 <th>Nickname</th>
                                 <th>Email</th>

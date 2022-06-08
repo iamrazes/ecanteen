@@ -59,7 +59,7 @@
                             <select name="role" id="role" class="btn btn-white rounded border">
                                 <option value="admin">Admin</option>
                                 <option value="seller">Seller</option>
-                                <option value="buyer">Buyer</option>
+                                <option value="buyer" selected="selected" >Buyer</option>
                             </select>
                         </p>
                     </div>
