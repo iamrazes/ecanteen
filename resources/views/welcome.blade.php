@@ -43,14 +43,23 @@
                 </p>
             </div>
             <div class="flex flex-row gap-4">
-                <a class="w-[120px] py-2 bg-gradient-to-r from-[#72c2ff] to-[#7277ff] text-white rounded font-semibold "
-                    href="{{ route('login') }}">
-                    Masuk
-                </a>
-                <a class="w-[120px] py-2 bg-gradient-to-r from-[#72c2ff] to-[#7277ff] text-white rounded font-semibold "
-                    href="{{ route('register') }}">
-                    Daftar
-                </a>
+                @auth
+                    @if (Auth::user())
+                        <a class="w-[320px] py-2 bg-gradient-to-r from-[#72c2ff] to-[#7277ff] text-white rounded font-semibold "
+                            href="{{ route('app') }}">
+                            Menuju Aplikasi
+                        </a>
+                    @endif
+                @else
+                    <a class="w-[120px] py-2 bg-gradient-to-r from-[#72c2ff] to-[#7277ff] text-white rounded font-semibold "
+                        href="{{ route('login') }}">
+                        Masuk
+                    </a>
+                    <a class="w-[120px] py-2 bg-gradient-to-r from-[#72c2ff] to-[#7277ff] text-white rounded font-semibold "
+                        href="{{ route('register') }}">
+                        Daftar
+                    </a>
+                @endauth
             </div>
         </div>
     </div>
@@ -59,7 +68,8 @@
     <div class="flex mx-auto mt-12 my-auto justify-center">
         <div class="flex flex-col gap-4">
             <div class="flex flex-col md:flex-row lg:flex-row items-center">
-                <img src="{{ asset('img/header-a.png') }}" alt="" class="md:-mr-32 invisible md:visible -mb-[22rem] md:mb-0">
+                <img src="{{ asset('img/header-a.png') }}" alt=""
+                    class="md:-mr-32 invisible md:visible -mb-[22rem] md:mb-0">
                 <div>
                     <div
                         class="flex flex-col bg-white drop-shadow-lg rounded-xl pb-4 py-3 w-[320px] md:w-[380px] lg:w-[520px]">
@@ -93,7 +103,8 @@
                         </div>
                     </div>
                 </div>
-                <img src="{{ asset('img/header-b.png') }}" alt="" class="md:-ml-32 invisible md:visible -mb-[22rem] md:mb-0">
+                <img src="{{ asset('img/header-b.png') }}" alt=""
+                    class="md:-ml-32 invisible md:visible -mb-[22rem] md:mb-0">
             </div>
         </div>
 

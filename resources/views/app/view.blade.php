@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-<title>eCanteen</title>
+<title>eCanteen - {{$product->name}}</title>
 @endsection
 
 @section('content')
@@ -28,8 +28,14 @@
                     <div class="flex flex-col w-[300px] md:justify-start md:my-0 mb-2 ml-0 lg:ml-4">
                         <div class="flex flex-col gap-1 ">
                             <p class="font-bold text-lg md:text-2xl">{{$product->name}}</p>
-                            <p class="font-semibold text-[#72c2ff] md:text-2xl">Rp. {{$product->price}}</p>
-                            <p>Stock : <span class="font-semibold">{{$product->stock}}</span></p>
+                            <div class="flex justify-between md:mt-2">
+                                <p>Harga :</p>
+                                <p class="font-semibold text-[#72c2ff] md:text-2xl">Rp. {{ number_format($product->price, 0, '.','.'), $product->price}}</p>
+                            </div>
+                            <div class="flex justify-between">
+                                <p>Stock : </p>
+                                <p class="font-semibold md:text-2xl">{{$product->stock}}</p>
+                            </div>
                         </div>
                         <div class="flex flex-col items-center mb-2 mt-4">
                             <a href=""
@@ -45,7 +51,7 @@
                 <div class="flex flex-wrap gap-2 lg:gap-4 mt-4 justify-center">
                     @foreach ( $productsNewest as $product)
                     <a href="{{route('show', ['category' => $product->category, 'name' => $product->name])}}" class="w-24 h-24 md:w-24 md:h-24 lg:w-32 lg:h-32">
-                        <img src="{{ asset('storage/ProductCoverImages/' . $product->cover) }}" class="rounded-md w-32 h-24 lg:h-32 object-cover " alt="">
+                        <img src="{{ asset('storage/ProductCoverImages/' . $product->cover) }}" class="rounded-md w-32 h-24 lg:h-32 object-cover hover:bg-blue-100 " alt="">
                     </a>
                     @endforeach
                 </div>

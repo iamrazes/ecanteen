@@ -25,7 +25,7 @@
                                             href="">{{ Auth::user()->nickname }}</a></span></p>
                             </div>
                             <div class="flex justify-center gap-6">
-                                <a class="text-lg fa fa-bucket hover:text-indigo-400"></a>
+                                <a class="text-lg fa fa-shopping-cart hover:text-indigo-400"></a>
                                 <a href="" class="text-lg fa fa-user hover:text-indigo-400"></a>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf

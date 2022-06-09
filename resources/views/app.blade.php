@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    <title>eCanteen | Jajan di Kantin Sekarang Bisa Online!</title>
+    <title>eCanteen - Jajan di Kantin Sekarang Bisa Online!</title>
 @endsection
 
 @section('content')
@@ -46,8 +46,8 @@
                             <div class="flex flex-col justify-between bg-white border md:rounded-b-lg rounded-b-md shadow rounded-t-lg">
                                 <img src="{{ asset('storage/ProductCoverImages/' . $product->cover) }}" alt=""
                                     class="rounded-br-xl rounded-t-lg object-cover h-[160px] w-[620px] md:h-[120px] md:w-[720px] lg:h-[200px]">
-                                <p class="px-2 pt-2 font-semibold text-[14px]">{{$product->name}}</p>
-                                <p class="px-2 pt-1 pb-2 font-bold text-[14px] text-[#72c2ff]">Rp. {{$product->price}}</p>
+                                <p class="px-2 pt-2 font-bold text-[14px]">{{$product->name}}</p>
+                                <p class="px-2 pt-1 pb-2 font-bold text-[14px] text-[#72c2ff]">Rp. {{ number_format($product->price, 0, '.','.'),$product->price}}</p>
                                 <div class="flex flex-wrap justify-center mb-2 mt-3 mx-2">
                                     <a
                                         href="{{route('show', ['category' => $product->category, 'name' => $product->name])}}"
@@ -79,8 +79,8 @@
                             <div class="flex flex-col justify-between bg-white md:rounded-b-lg border rounded-b-md shadow rounded-t-lg">
                                 <img src="{{ asset('storage/ProductCoverImages/' . $product->cover) }}" alt=""
                                     class="rounded-br-xl rounded-t-lg object-cover h-[160px] w-[620px] md:h-[120px] md:w-[720px] lg:h-[200px]">
-                                <p class="px-2 pt-2 font-semibold text-[14px]">{{$product->name}}</p>
-                                <p class="px-2 pt-1 pb-2 font-bold text-[14px] text-[#72c2ff]">Rp. {{$product->price}}</p>
+                                <p class="px-2 pt-2 font-bold text-[14px]">{{$product->name}}</p>
+                                <p class="px-2 pt-1 pb-2 font-bold text-[14px] text-[#72c2ff]">Rp. {{number_format($product->price, 0, '.','.'),$product->price}}</p>
                                 <div class="flex flex-wrap justify-center mb-2 mt-3 mx-2">
                                     <a
                                         href="{{route('show', ['category' => $product->category, 'name' => $product->name])}}"
@@ -112,8 +112,8 @@
                             <div class="flex flex-col justify-between bg-white md:rounded-b-lg border rounded-b-md shadow rounded-t-lg">
                                 <img src="{{ asset('storage/ProductCoverImages/' . $product->cover) }}" alt=""
                                     class="rounded-br-xl rounded-t-lg object-cover h-[160px] w-[620px] md:h-[120px] md:w-[720px] lg:h-[200px]">
-                                <p class="px-2 pt-2 font-semibold text-[14px]">{{$product->name}}</p>
-                                <p class="px-2 pt-1 pb-2 font-bold text-[14px] text-[#72c2ff]">Rp. {{$product->price}}</p>
+                                <p class="px-2 pt-2 font-bold text-[14px]">{{$product->name}}</p>
+                                <p class="px-2 pt-1 pb-2 font-bold text-[14px] text-[#72c2ff]">Rp. {{number_format($product->price, 0, '.','.'), $product->price}}</p>
                                 <div class="flex flex-wrap justify-center mb-2 mt-3 mx-2">
                                     <a
                                         href="{{route('show', ['category' => $product->category, 'name' => $product->name])}}"
