@@ -1,7 +1,7 @@
-{{-- @extends('layouts.admin')
+@extends('layouts.admin')
 
 @section('title')
-    <title>eCanteen - Products</title>
+    <title>eCanteen - Edit a Products</title>
 @endsection
 
 @section('head')
@@ -35,7 +35,7 @@
     <!-- Main content -->
     <div class="content">
         <div class="card card-primary card-outline">
-            <h3 class="mt-3 ml-4 card-title">Edit Product</h3>
+            <h3 class="mt-3 ml-4 card-title">Edit a Product</h3>
             <div class="card-body">
 
                 @if ($errors->any())
@@ -49,37 +49,54 @@
                     </div>
                 @endif
 
-                <form action="{{ route('admin.products.update',$product->id) }}" method="POST" enctype="multipart/form-data">
+                <form
+                    action="{{ auth()->user()->role == 'admin' ? route('admin.products.update', $products->id) : route('dashboardSeller.admin.products.update', $products->id) }}"
+                    method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PATCH')
                     <div class="form-group">
-                        <input type="text" id="nama" name="name" class="form-control" placeholder="Product Name..." value="{{ old('name', $product->name) }}">
+                        <h4 class="text-md">Name :</h4>
+                        <input type="text" id="nama" name="name" class="form-control" placeholder="Product Name..."
+                            autocomplete="off" value="{{ $products->name }}">
                     </div>
                     <div class="form-group">
-                        <p>Category :
-                            <select name="category" id="category" class="btn btn-white rounded border" value="{{ old('name', $product->category) }}">
-                                <option value="Makanan">Makanan</option>
-                                <option value="Minuman">Minuman</option>
-                                <option value="Lainnya">Lainnya</option>
+                        <h4 class="text-md">Category :
+                            <select name="category" id="category" class="btn btn-white rounded border">
+                                <option value="Makanan" {{ $products->category == 'Makanan' ? 'selected' : '' }}>Makanan
+                                </option>
+                                <option value="Minuman" {{ $products->category == 'Minuman' ? 'selected' : '' }}>Minuman
+                                </option>
+                                <option value="Lainnya" {{ $products->category == 'Lainnya' ? 'selected' : '' }}>Lainnya
+                                </option>
                             </select>
-                        </p>
+                        </h4>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="nama" name="price" class="form-control" placeholder="Price..." value="{{ old('name', $product->price) }}">
+                        <h4 class="text-md">Price :</h4>
+                        <input type="text" id="nama" name="price" class="form-control" placeholder="Price..."
+                            autocomplete="off" value="{{ $products->price }}">
                     </div>
                     <div class="form-group">
-                        <input type="text" id="nama" name="stock" class="form-control" placeholder="Stock..." value="{{ old('name',$product->stock) }}">
+                        <h4 class="text-md">Stock :</h4>
+                        <input type="text" id="nama" name="stock" class="form-control" placeholder="Stock..."
+                            autocomplete="off" value="{{ $products->stock }}">
                     </div>
                     <div class="form-group">
-                        <textarea type="text" id="nama" name="description" class="form-control"
-                            placeholder="Product Description..." value="{{ old('name',$product->description) }}"></textarea>
+                        <h4 class="text-md">Description :</h4>
+                        <input type="text" id="nama" name="description" class="form-control"
+                            placeholder="Product Description..." value="{{ $products->description }}"></input>
                     </div>
+
                     <div class="form-group">
-                        <p>Status :
-                            <select name="status" id="status" class="btn btn-white rounded border" value="{{ old('name',$product->status) }}">
-                                <option value="Available">Available</option>
-                                <option value="Not Available">Not Available</option>
+                        <h4 class="text-md">Status :
+                            <select name="status" id="status" class="btn btn-white rounded border">
+                                <option value="Available" {{ $products->status == 'Available' ? 'selected' : '' }}>
+                                    Available</option>
+                                <option value="Not Available"
+                                    {{ $products->status == 'Not Available' ? 'selected' : '' }}>Not
+                                    Available</option>
                             </select>
-                        </p>
+                        </h4>
                     </div>
 
                     <button type="submit" class="btn btn-success">Submit</button>
@@ -124,4 +141,4 @@
             });
         });
     </script>
-@endsection --}}
+@endsection

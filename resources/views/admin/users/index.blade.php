@@ -52,7 +52,7 @@
                 <!-- /.card-header -->
                 <div class="card-body">
                     <a href="{{ route('admin.users.create') }}" class="btn btn-success mb-2"><i
-                            class="fas fa-plus-square mr-2"></i>Add Users</a>
+                            class="fas fa-plus-square mr-2"></i>Add User</a>
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>

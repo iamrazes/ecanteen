@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    <title>eCanteen - Users</title>
+    <title>eCanteen - Create a User</title>
 @endsection
 
 @section('head')
@@ -34,24 +34,29 @@
     <!-- Main content -->
     <div class="content">
         <div class="card card-primary card-outline">
-            <h3 class="mt-3 ml-4 card-title">Add New Users</h3>
+            <h3 class="mt-3 ml-4 card-title">Add a New Users</h3>
             <div class="card-body">
                 <form action="{{ route('admin.users.save') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">
-                        <input type="text" id="nama" name="name" class="form-control" placeholder="Nama..." autocomplete="off">
+                        <h4 class="text-md">Name :</h4>
+                        <input type="text" id="nama" name="name" class="form-control" placeholder="Name..." autocomplete="off">
                     </div>
                     <div class="form-group">
+                        <h4 class="text-md">Nickname :</h4>
                         <input type="text" id="nama" name="nickname" class="form-control" placeholder="Nickname..." autocomplete="off">
                     </div>
                     <div class="form-group">
+                        <h4 class="text-md">Email :</h4>
                         <input type="text" type="email" name="email" class="form-control" placeholder="Email..." autocomplete="off">
                     </div>
                     <div class="form-group">
-                        <input type="text" id="nama" name="nim" class="form-control" placeholder="Nim..." autocomplete="off">
+                        <h4 class="text-md">NIM :</h4>
+                        <input type="text" id="nama" name="nim" class="form-control" placeholder="NIM..." autocomplete="off">
                     </div>
                     <div class="form-group">
+                        <h4 class="text-md">Password :</h4>
                         <input type="text" type="password" name="password" class="form-control" placeholder="Password..." autocomplete="off">
                     </div>
                     <div class="form-group">
@@ -64,9 +69,12 @@
                         </p>
                     </div>
                     <div class="form-group">
+                        <h4 class="text-md">Saldo :</h4>
                         <input type="text" id="saldo" name="saldo" class="form-control" placeholder="Saldo..." autocomplete="off">
                         <div class="mt-3">
+                        <h4 class="text-md">Tentukan Saldo :</h4>
                             <button class="btn btn-info" id="10k">10K</button>
+                            <button class="btn btn-success" id="20k">20K</button>
                             <button class="btn btn-primary" id="50k">50K</button>
                             <button class="btn btn-danger" id="100k">100K</button>
                         </div>
@@ -83,6 +91,7 @@
 @section('script')
     <script>
         const saldo10k = document.getElementById('10k')
+        const saldo20k = document.getElementById('20k')
         const saldo50k = document.getElementById('50k')
         const saldo100k = document.getElementById('100k')
         const saldo = document.getElementById('saldo')
@@ -90,6 +99,11 @@
         saldo10k.addEventListener('click', (e) => {
             e.preventDefault()
             saldo.value = '10000'
+        })
+
+        saldo20k.addEventListener('click', (e) => {
+            e.preventDefault()
+            saldo.value = '20000'
         })
 
         saldo50k.addEventListener('click', (e) => {

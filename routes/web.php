@@ -90,16 +90,14 @@ Route::prefix('dashboard')->middleware(['auth', 'AdminOnly'])->group(function ()
 
 Route::prefix('dashboardSeller')->middleware(['auth', 'SellerPermission'])->name('dashboardSeller.')->group(function () {
 
-
-    Route::get('/products', function () {
-        return view('admin.products.index');
-    })->name('products');
-    Route::get('/products', [ProductController::class, 'index'])->name('products');
-    Route::get('/products-create', [ProductController::class, 'create'])->name('admin.products.create');
-    Route::post('/products-save', [ProductController::class, 'store'])->name('admin.products.save');
-    Route::delete('/products-delete/{id}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
-    // Route::get('/products-edit', [ProductController::class, 'edit'])->name('admin.products.edit');
-    // Route::post('/products-update', [ProductController::class, 'update'])->name('admin.products.update');
+    Route::resource('/products', ProductController::class)->names([
+        'index'=>'products',
+        'create'=>'admin.products.create',
+        'store'=>'admin.products.save',
+        'destroy'=>'admin.products.destroy',
+        'edit'=>'admin.products.edit',
+        'update'=>'admin.products.update'
+    ]);
 
 });
 

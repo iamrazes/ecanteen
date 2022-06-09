@@ -90,8 +90,10 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
+        $products = Product::findOrFail($id);
+        return view('admin.products.edit',compact('products'));
     }
 
     /**
@@ -101,9 +103,23 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-    }
+        $products = Product::findOrFail($id);
+
+        $products->update([
+           'name' => $request->name,
+           'category' => $request->category,
+           'price' => $request->price,
+           'stock' => $request->stock,
+           'description' => $request->description,
+           'status' => $request->status,
+           ]);
+
+        if (Auth::user()->role == 'admin') return redirect()->route('products')->with('status', 'Data has been Updated!');
+        else
+        if (Auth::user()->role == 'seller') return redirect()->route('dashboardSeller.products')->with('status', 'Data has been Updated!');
+        }
 
     /**
      * Remove the specified resource from storage.

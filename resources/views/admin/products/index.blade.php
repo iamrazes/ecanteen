@@ -56,12 +56,12 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>Cover</th>
                                         <th>Name</th>
                                         <th>Category</th>
                                         <th>Price</th>
                                         <th>Stock</th>
-                                        <th>Description</th>
                                         <th>Status</th>
                                         <th>Tools</th>
                                     </tr>
@@ -69,15 +69,15 @@
                                 <tbody>
                                     @foreach ($dtproduct as $item)
                                         <tr>
+                                            <td>{{ $item->id }}</td>
                                             <td class="text-center">
-                                                <img class="" style="width:150px"
+                                                <img class="" style="width:75px"
                                                     src="{{ asset('storage/ProductCoverImages/' . $item->cover) }}" alt="">
                                             </td>
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->category }}</td>
-                                            <td>{{ $item->price }}</td>
+                                            <td>{{ number_format($item->price, 0, '.','.'), $item->price }}</td>
                                             <td>{{ $item->stock }}</td>
-                                            <td class="">{{ $item->description }}</td>
                                             <td>{{ $item->status }}</td>
                                             <td class="flex row">
                                                 <form action="{{ auth()->user()->role == 'admin' ? route('admin.products.destroy', $item->id) : route('dashboardSeller.admin.products.destroy', $item->id) }}" method="POST">
@@ -85,7 +85,7 @@
                                                     @method('DELETE')
                                                     <button class="ml-2 btn btn-danger mt-1" style="width:45px" type="submit"><span class="fas fa-trash"></span></button>
                                                 </form>
-                                                <a href="" class="btn btn-secondary ml-2 mt-1" style="width:45px" type="submit"><span class="fas fa-edit"></a>
+                                                <a href="{{ auth()->user()->role == 'admin' ? route('admin.products.edit', $item->id) : route('dashboardSeller.admin.products.edit', $item->id) }}" class="btn btn-secondary ml-2 mt-1" style="width:45px" type="submit"><span class="fas fa-edit"></a>
                                                 <a href="" class="btn btn-primary ml-2 mt-1" style="width:45px" type="submit"><span class="fas fa-eye"></a>
                                             </td>
                                         </tr>
@@ -93,12 +93,12 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
+                                        <th>ID</th>
                                         <th>Cover</th>
                                         <th>Name</th>
                                         <th>Category</th>
                                         <th>Price</th>
                                         <th>Stock</th>
-                                        <th>Description</th>
                                         <th>Status</th>
                                         <th>Tools</th>
                                     </tr>
