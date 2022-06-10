@@ -49,7 +49,7 @@
                 @endif
 
                 <form
-                    action="{{ auth()->user()->role == 'admin' ? route('admin.products.save') : route('dashboardSeller.admin.products.save') }}"
+                    action="{{ auth()->user()->role == 'Admin' ? route('admin.products.save') : route('dashboardSeller.admin.products.save') }}"
                     method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">

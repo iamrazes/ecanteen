@@ -17,7 +17,7 @@ class SellerPermission
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->role == 'seller') {
+        if (Auth::user()->role == 'Seller') {
             return $next($request);
         }else{
             return abort(404);

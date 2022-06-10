@@ -50,7 +50,7 @@
                 @endif
 
                 <form
-                    action="{{ auth()->user()->role == 'admin' ? route('admin.products.update', $products->id) : route('dashboardSeller.admin.products.update', $products->id) }}"
+                    action="{{ auth()->user()->role == 'Admin' ? route('admin.products.update', $products->id) : route('dashboardSeller.admin.products.update', $products->id) }}"
                     method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')

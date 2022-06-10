@@ -51,7 +51,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <a href="{{ auth()->user()->role == 'admin' ? route('admin.products.create') : route('dashboardSeller.admin.products.create') }}" class="btn btn-success mb-2"><i
+                            <a href="{{ auth()->user()->role == 'Admin' ? route('admin.products.create') : route('dashboardSeller.admin.products.create') }}" class="btn btn-success mb-2"><i
                                     class="fas fa-plus-square mr-2"></i>Add Product</a>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
@@ -80,12 +80,12 @@
                                             <td>{{ $item->stock }}</td>
                                             <td>{{ $item->status }}</td>
                                             <td class="flex row">
-                                                <form action="{{ auth()->user()->role == 'admin' ? route('admin.products.destroy', $item->id) : route('dashboardSeller.admin.products.destroy', $item->id) }}" method="POST">
+                                                <form action="{{ auth()->user()->role == 'Admin' ? route('admin.products.destroy', $item->id) : route('dashboardSeller.admin.products.destroy', $item->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="ml-2 btn btn-danger mt-1" style="width:45px" type="submit"><span class="fas fa-trash"></span></button>
                                                 </form>
-                                                <a href="{{ auth()->user()->role == 'admin' ? route('admin.products.edit', $item->id) : route('dashboardSeller.admin.products.edit', $item->id) }}" class="btn btn-secondary ml-2 mt-1" style="width:45px" type="submit"><span class="fas fa-edit"></a>
+                                                <a href="{{ auth()->user()->role == 'Admin' ? route('admin.products.edit', $item->id) : route('dashboardSeller.admin.products.edit', $item->id) }}" class="btn btn-secondary ml-2 mt-1" style="width:45px" type="submit"><span class="fas fa-edit"></a>
                                                 <a href="" class="btn btn-primary ml-2 mt-1" style="width:45px" type="submit"><span class="fas fa-eye"></a>
                                             </td>
                                         </tr>

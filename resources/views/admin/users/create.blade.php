@@ -62,9 +62,9 @@
                     <div class="form-group">
                         <p>Role :
                             <select name="role" id="role" class="btn btn-white rounded border">
-                                <option value="admin">Admin</option>
-                                <option value="seller">Seller</option>
-                                <option value="buyer" selected="selected" >Buyer</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Seller">Seller</option>
+                                <option value="Buyer" selected="selected" >Buyer</option>
                             </select>
                         </p>
                     </div>

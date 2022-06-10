@@ -106,13 +106,13 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/dashboard', function () {
-    if (Auth::user()->role == 'admin') {
+    if (Auth::user()->role == 'Admin') {
         return view('dashboard');
     } else {
-        if (Auth::user()->role == 'seller')
+        if (Auth::user()->role == 'Seller')
         return view('dashboard');
         }
-    if (Auth::user()->role == 'buyer') {
+    if (Auth::user()->role == 'Buyer') {
         return redirect()->route('app');
     }
     })->middleware(['auth'])->name('dashboard');

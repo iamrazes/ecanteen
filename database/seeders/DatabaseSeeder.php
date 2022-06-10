@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@example.com',
             'nim' => '00000',
             'password' => Hash::make('password'),
-            'role' => 'admin',
+            'role' => 'Admin',
         ]);
 
         User::create([
@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'seller@example.com',
             'nim' => '12345',
             'password' => Hash::make('password'),
-            'role' => 'seller',
+            'role' => 'Seller',
         ]);
 
         User::create([
@@ -41,17 +41,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'buyer@example.com',
             'nim' => '54321',
             'password' => Hash::make('password'),
-            'role' => 'buyer',
-        ]);
-
-        Product::create([
-            'name' => 'Product A',
-            'cover' => 'NULL',
-            'category' => 'Makanan',
-            'description' => 'Makanan',
-            'price' => '1000',
-            'stock' => '1',
-            'status' => 'Available',
+            'role' => 'Buyer',
         ]);
 
     }

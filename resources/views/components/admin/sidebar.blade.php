@@ -24,14 +24,14 @@
 
 
                 @auth
-                    @if (Auth::user()->role == 'admin')
+                    @if (Auth::user()->role == 'Admin')
                     <li class="nav-header text-uppercase">System Control</li>
                     @endif
                 @endauth
 
                 <li class="nav-header text-uppercase">Database Control</li>
                 @auth
-                    @if (Auth::user()->role == 'admin')
+                    @if (Auth::user()->role == 'Admin')
                         <li class="nav-item">
                             <a href="{{ route('users') }}"
                                 class="nav-link {{ request()->routeIs('users') ? 'active' : '' }}">
@@ -44,9 +44,8 @@
                     @endif
                 @endauth
                 @auth
-                    @if (Auth::user()->role == 'admin')
+                    @if (Auth::user()->role == 'Admin')
                         <li class="nav-item">
-                            {{-- <a href="{{ auth()->user()->role == 'admin' ? route('products') : route('dashboardSeller.products') }}" class="nav-link {{ request()->routeIs('products') ? 'active' : '' }}"> --}}
                             <a href="{{ route('products') }}"
                                 class="nav-link {{ request()->routeIs('products') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-box"></i>
@@ -59,9 +58,8 @@
                 @endauth
 
                 @auth
-                    @if (Auth::user()->role == 'seller')
+                    @if (Auth::user()->role == 'Seller')
                         <li class="nav-item">
-                            {{-- <a href="{{ auth()->user()->role == 'admin' ? route('products') : route('dashboardSeller.products') }}" class="nav-link {{ request()->routeIs('products') ? 'active' : '' }}"> --}}
                             <a href="{{ route('dashboardSeller.products') }}"
                                 class="nav-link {{ request()->routeIs('products') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-box"></i>
@@ -75,7 +73,7 @@
 
 
                 @auth
-                    @if (Auth::user()->role == 'admin')
+                    @if (Auth::user()->role == 'Admin')
                         <li class="nav-header text-uppercase">Content Control</li>
                         <li class="nav-item">
                             <a href="{{ route('posts') }}"

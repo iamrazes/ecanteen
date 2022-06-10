@@ -68,10 +68,10 @@
                     <div class="form-group">
                         <h4 class="text-md">Role :
                             <select name="role" id="role" class="btn btn-white rounded border">
-                                <option value="admin" {{ $dtusers->role == 'admin' ? 'selected' : '' }}>Admin</option>
-                                <option value="seller" {{ $dtusers->role == 'seller' ? 'selected' : '' }}>Seller
+                                <option value="Admin" {{ $dtusers->role == 'Admin' ? 'selected' : '' }}>Admin</option>
+                                <option value="Seller" {{ $dtusers->role == 'Seller' ? 'selected' : '' }}>Seller
                                 </option>
-                                <option value="buyer" {{ $dtusers->role == 'buyer' ? 'selected' : '' }}>Buyer</option>
+                                <option value="Buyer" {{ $dtusers->role == 'Buyer' ? 'selected' : '' }}>Buyer</option>
                             </select>
                         </h4>
                     </div>

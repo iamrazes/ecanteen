@@ -6,7 +6,7 @@
 
 @section('content')
     @auth
-        @if (Auth::user()->role == 'admin')
+        @if (Auth::user()->role == 'Admin')
             <!-- Main content -->
             <div class="content pt-3">
                 <div class="container-fluid">
@@ -85,7 +85,7 @@
 
 
     @auth
-        @if (Auth::user()->role == 'seller')
+        @if (Auth::user()->role == 'Seller')
             <div class="content pt-3">
                 <div class="container-fluid">
                     <!-- Small boxes (Stat box) -->

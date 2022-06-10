@@ -67,9 +67,9 @@ class ProductController extends Controller
             'status'=> $request->status,
             ]);
 
-        if (Auth::user()->role == 'admin') return redirect()->route('products')->with('status', 'Data has been Added!');
+        if (Auth::user()->role == 'Admin') return redirect()->route('products')->with('status', 'Data has been Added!');
         else
-        if (Auth::user()->role == 'seller') return redirect()->route('dashboardSeller.products')->with('status', 'Data has been Added!');
+        if (Auth::user()->role == 'Seller') return redirect()->route('dashboardSeller.products')->with('status', 'Data has been Added!');
 
     }
 
@@ -116,9 +116,9 @@ class ProductController extends Controller
            'status' => $request->status,
            ]);
 
-        if (Auth::user()->role == 'admin') return redirect()->route('products')->with('status', 'Data has been Updated!');
+        if (Auth::user()->role == 'Admin') return redirect()->route('products')->with('status', 'Data has been Updated!');
         else
-        if (Auth::user()->role == 'seller') return redirect()->route('dashboardSeller.products')->with('status', 'Data has been Updated!');
+        if (Auth::user()->role == 'Seller') return redirect()->route('dashboardSeller.products')->with('status', 'Data has been Updated!');
         }
 
     /**
@@ -137,9 +137,9 @@ class ProductController extends Controller
 
         $product->delete();
 
-        if (Auth::user()->role == 'admin') return redirect()->route('products')->with('status', 'Data has been removed!');
+        if (Auth::user()->role == 'Admin') return redirect()->route('products')->with('status', 'Data has been removed!');
         else
-        if (Auth::user()->role == 'seller') return redirect()->route('dashboardSeller.products')->with('status', 'Data has been removed!');
+        if (Auth::user()->role == 'Seller') return redirect()->route('dashboardSeller.products')->with('status', 'Data has been removed!');
 
     }
 }
