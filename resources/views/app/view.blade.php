@@ -9,10 +9,11 @@
 
 <div class="flex justify-center">
     <div class="mx-auto my-auto mt-28 md:mt-20 lg:mt-24">
-        <div class="flex justify-between px-2 py-1">
-            <a href="{{ url()->previous() }}"><span class="fa fa-arrow-left text-lg"></span></a>
-            <a href="{{route('app')}}"><span class="fa fa-home text-lg"></span></a>
-        </div>
+        {{-- <div class="flex justify-between px-2 py-1">
+            <a href="{{ route('app') }}"><span class="fa fa-arrow-left text-lg"></span></a>
+            <a href="{{ route('app') }}"><span class="fa fa-home text-lg"></span></a>
+            <a href="{{ route('app') }}"><span class="fa fa-arrow-right text-lg"></span></a>
+        </div> --}}
         <div class="rounded-xl  shadow-xl px-4 pt-2 pb-4 bg-white">
             <div
                 class="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start py-4 gap-4">
@@ -49,7 +50,7 @@
             <div>
                 <p class="font-semibold text-[#72c2ff] mt-4">Rekomendasi</p>
                 <div class="flex flex-wrap gap-2 lg:gap-4 mt-4 justify-center">
-                    @foreach ( $productsNewest as $product)
+                    @foreach ( $productsRecommended as $product)
                     <a href="{{route('show', ['category' => $product->category, 'name' => $product->name])}}" class="w-24 h-24 md:w-24 md:h-24 lg:w-32 lg:h-32">
                         <img src="{{ asset('storage/ProductCoverImages/' . $product->cover) }}" class="rounded-md w-32 h-24 lg:h-32 object-cover hover:bg-blue-100 " alt="">
                     </a>

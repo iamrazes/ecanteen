@@ -32,8 +32,12 @@
                                 class="fa fa-gear text-6xl mb-1"></span>Settings</a>
                         <a class="flex flex-col text-slate-200"><span class="fa fa-history text-6xl mb-1"></span>Riwayat</a>
                         <a class="flex flex-col text-slate-200"><span class="fa fa-message text-6xl mb-1"></span>Chat</a>
-                        <a href="{{ route('logout') }}" class="flex flex-col hover:text-blue-300 transition"><span
-                                class="fa fa-sign-out text-6xl mb-1"></span>Keluar</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button href="{{ route('logout') }}" class="flex flex-col hover:text-blue-300 transition">
+                                <span
+                                    class="fa fa-sign-out text-6xl mb-1"></span>Keluar</button>
+                        </form>
                     </div>
                 </div>
             @endif

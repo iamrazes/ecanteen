@@ -60,8 +60,7 @@ Route::prefix('dashboard')->middleware(['auth', 'AdminOnly'])->group(function ()
         'store'=>'admin.users.save',
         'destroy'=>'admin.users.destroy',
         'edit'=>'admin.users.edit',
-        'index'=>'users',
-        'create'=>'admin.users.create',
+        'update'=>'admin.users.update',
         'show'=>'admin.users.view',
     ]);
 

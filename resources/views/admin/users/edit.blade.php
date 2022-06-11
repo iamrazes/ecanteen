@@ -71,7 +71,7 @@
                     <div class="form-group">
                         <h4 class="text-md">NIM :</h4>
                         <input type="text" id="nama" name="nim" class="form-control" placeholder="Nim..."
-                            autocomplete="off" value="{{ $dtusers->nim }}">
+                            autocomplete="off" value="{{ $dtusers->nim }}" required>
                     </div>
                     <div class="form-group">
                         <h4 class="text-md">Password :</h4>

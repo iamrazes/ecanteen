@@ -17,7 +17,7 @@ class UserController extends Controller
     public function index()
     {
         $dtusers = User::all();
-        return view('admin.users.index',compact('dtusers'));
+        return view('admin.users.index', compact('dtusers'));
     }
 
     /**
@@ -38,7 +38,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-         User::create([
+        User::create([
             'name' => $request->name,
             'nickname' => $request->nickname,
             'email' => $request->email,
@@ -50,7 +50,7 @@ class UserController extends Controller
             'jurusan' => $request->jurusan,
             'fakultas' => $request->fakultas,
             'semester' => $request->semester,
-            ]);
+        ]);
 
         return redirect()->route('users')->with('status', 'Data has been Added!');
     }
@@ -64,7 +64,7 @@ class UserController extends Controller
     public function show($id)
     {
         $dtusers = User::findOrFail($id);
-        return view('admin.users.view',compact('dtusers'));
+        return view('admin.users.view', compact('dtusers'));
     }
 
     /**
@@ -76,7 +76,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $dtusers = User::findOrFail($id);
-        return view('admin.users.edit',compact('dtusers'));
+        return view('admin.users.edit', compact('dtusers'));
     }
 
     /**
@@ -88,27 +88,35 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'password' => ['required', Rules\Password::defaults()],
-        ]);
+        if ($request->password) {
+
+            $request->validate([
+                'password' => [Rules\Password::defaults()],
+            ]);
+        }
 
         $dtusers = User::findOrFail($id);
 
         $dtusers->update([
-           'name' => $request->name,
-           'nickname' => $request->nickname,
-           'email' => $request->email,
-           'nim' => $request->nim,
-           'password' => Hash::make($request->password),
-           'role' => $request->role,
-           'saldo' => $request->saldo,
-           'phone' => $request->phone,
-           'jurusan' => $request->jurusan,
-           'fakultas' => $request->fakultas,
-           'semester' => $request->semester,
-           ]);
+            'name' => $request->name,
+            'nickname' => $request->nickname,
+            'email' => $request->email,
+            'nim' => $request->nim,
+            'role' => $request->role,
+            'saldo' => $request->saldo,
+            'phone' => $request->phone,
+            'jurusan' => $request->jurusan,
+            'fakultas' => $request->fakultas,
+            'semester' => $request->semester,
+        ]);
 
-       return redirect()->route('users')->with('status', 'Data has been Updated!');
+        if ($request->password) {
+            $dtusers->update([
+                'password' => Hash::make($request->password),
+            ]);
+        }
+
+        return redirect()->route('users')->with('status', 'Data has been Updated!');
     }
 
     /**

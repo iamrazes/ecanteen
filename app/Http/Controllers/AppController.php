@@ -17,9 +17,15 @@ class AppController extends Controller
      */
     public function index()
     {
-        $productsNewest = Product::latest()->limit(5)->get();
-        $foods = Product::where('category', 'Makanan')->latest()->limit(5)->get();
-        $drinks = Product::where('category', 'Minuman')->latest()->limit(5)->get();
+        $productsNewest = Product::where('status', 'Available')->latest()->limit(5)->get();
+        $foods = Product::where(['category' => 'Makanan', 'status' => 'Available'])->inRandomOrder()->limit(5)->get();
+        $drinks = Product::where(['category' => 'Minuman', 'status' => 'Available'])->inRandomOrder()->limit(5)->get();
+
+        // where([
+        // 'category' => 'makanan',
+        // 'status' => 'available'
+        // ]);
+
         return view('app',compact('productsNewest', 'foods', 'drinks'));
     }
 
@@ -53,8 +59,8 @@ class AppController extends Controller
     public function show($category, $name)
     {
         $product = Product::where(['category' => $category, 'name' => $name])->first();
-        $productsNewest = Product::latest()->limit(6)->get();
-        return view('app.view',compact('product','productsNewest'));
+        $productsRecommended = Product::where('id', '!=', $product->id)->inRandomOrder()->limit(6)->get();
+        return view('app.view',compact('product','productsRecommended'));
 
     }
 
