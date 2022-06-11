@@ -24,6 +24,10 @@ return new class extends Migration
             $table->string('role');
             $table->string('transaction')->nullable();
             $table->string('saldo')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('jurusan')->nullable();
+            $table->string('fakultas')->nullable();
+            $table->string('semester')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -8,25 +8,25 @@
                         <h1 class="text-3xl md:text-5xl text-white font-bold">eCanteen</h1>
                         <p class="text-sm text-white ">Sekarang Jajan di Kantin Bisa Online!</p>
                         <div class="flex flex-wrap gap-4 mt-2 text-xl">
-                            <a href="https://www.facebook.com" class="fab fa-facebook text-white hover:text-indigo-700 transition delay-50 duration-300"></a>
-                            <a href="https://www.instagram.com" class="fab fa-instagram text-white hover:text-indigo-700 transition delay-50 duration-300"></a>
-                            <a href="https://www.twitter.com" class="fab fa-twitter text-white hover:text-indigo-700 transition delay-50 duration-300"></a>
-                            <a href="https://www.youtube.com" class="fab fa-youtube text-white hover:text-indigo-700 transition delay-50 duration-300"></a>
+                            <a href="https://www.facebook.com" class="fab fa-facebook text-white hover:text-slate-200 transition delay-50 duration-300"></a>
+                            <a href="https://www.instagram.com" class="fab fa-instagram text-white hover:text-slate-200 transition delay-50 duration-300"></a>
+                            <a href="https://www.twitter.com" class="fab fa-twitter text-white hover:text-slate-200 transition delay-50 duration-300"></a>
+                            <a href="https://www.youtube.com" class="fab fa-youtube text-white hover:text-slate-200 transition delay-50 duration-300"></a>
                         </div>
                     </div>
 
                     <div class="flex flex-col mx-2 gap-1 mb-2 md:ml-12 ">
                         <h1 class="font-semibold text-white border-b border-blue-200">Bantuan</h1>
-                        <span><a class="text-white hover:text-indigo-700" href="{{ route('privacy') }}">Kebijakan Privasi</a></span>
-                        <span><a class="text-white hover:text-indigo-700" href="{{ route('service') }}">Sayarat dan Ketentuan</a></span>
-                        <span><a class="text-white hover:text-indigo-700" href="{{ route('submission') }}">Pengajuan Dagangan</a></span>
-                        <span><a class="text-white hover:text-indigo-700" href="{{ route('about') }}">Tentang Kami</a></span>
-                        <span class="mb-3 md:mb-8" ><a href="{{ route('contact') }}"  class="text-white hover:text-indigo-700">Kontak</a></span>
+                        <span><a class="text-white hover:text-slate-200" href="{{ route('privacy') }}">Kebijakan Privasi</a></span>
+                        <span><a class="text-white hover:text-slate-200" href="{{ route('service') }}">Sayarat dan Ketentuan</a></span>
+                        <span><a class="text-white hover:text-slate-200" href="{{ route('submission') }}">Pengajuan Dagangan</a></span>
+                        <span><a class="text-white hover:text-slate-200" href="{{ route('about') }}">Tentang Kami</a></span>
+                        <span class="mb-3 md:mb-8" ><a href="{{ route('contact') }}"  class="text-white hover:text-slate-200">Kontak</a></span>
                         <h1 class="font-semibold text-white border-b border-blue-200">Sosial Media</h1>
-                        <span><a class="text-white hover:text-indigo-700" href="https://www.facebook.com">Facebook</a></span>
-                        <span><a class="text-white hover:text-indigo-700" href="https://www.instagram.com">Instagram</a></span>
-                        <span><a class="text-white hover:text-indigo-700" href="https://www.youtube.com">Youtube</a></span>
-                        <span><a class="text-white hover:text-indigo-700" href="https://www.twitter.com">Twitter</a></span>
+                        <span><a class="text-white hover:text-slate-200" href="https://www.facebook.com">Facebook</a></span>
+                        <span><a class="text-white hover:text-slate-200" href="https://www.instagram.com">Instagram</a></span>
+                        <span><a class="text-white hover:text-slate-200" href="https://www.youtube.com">Youtube</a></span>
+                        <span><a class="text-white hover:text-slate-200" href="https://www.twitter.com">Twitter</a></span>
                     </div>
                 </div>
             </div>

@@ -34,8 +34,21 @@
     <!-- Main content -->
     <div class="content">
         <div class="card card-primary card-outline">
-            <h3 class="mt-3 ml-4 card-title">Edit Users</h3>
+            <h3 class="mt-3 ml-4 card-title">Edit a User</h3>
             <div class="card-body">
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+
                 <form action="{{ route('admin.users.update', $dtusers->id) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
@@ -63,17 +76,36 @@
                     <div class="form-group">
                         <h4 class="text-md">Password :</h4>
                         <input type="text" type="password" name="password" class="form-control" placeholder="Password..."
-                            autocomplete="off   ">
+                            autocomplete="off">
                     </div>
                     <div class="form-group">
                         <h4 class="text-md">Role :
                             <select name="role" id="role" class="btn btn-white rounded border">
                                 <option value="Admin" {{ $dtusers->role == 'Admin' ? 'selected' : '' }}>Admin</option>
-                                <option value="Seller" {{ $dtusers->role == 'Seller' ? 'selected' : '' }}>Seller
-                                </option>
+                                <option value="Seller" {{ $dtusers->role == 'Seller' ? 'selected' : '' }}>Seller</option>
                                 <option value="Buyer" {{ $dtusers->role == 'Buyer' ? 'selected' : '' }}>Buyer</option>
                             </select>
                         </h4>
+                    </div>
+                    <div class="form-group">
+                        <h4 class="text-md">Phone :</h4>
+                        <input type="text" id="nama" name="phone" class="form-control" placeholder="phone..."
+                            autocomplete="off" value="{{ $dtusers->phone }}">
+                    </div>
+                    <div class="form-group">
+                        <h4 class="text-md">Jurusan :</h4>
+                        <input type="text" id="nama" name="jurusan" class="form-control" placeholder="jurusan..."
+                            autocomplete="off" value="{{ $dtusers->jurusan }}">
+                    </div>
+                    <div class="form-group">
+                        <h4 class="text-md">Fakultas :</h4>
+                        <input type="text" id="nama" name="fakultas" class="form-control" placeholder="fakultas..."
+                            autocomplete="off" value="{{ $dtusers->fakultas }}">
+                    </div>
+                    <div class="form-group">
+                        <h4 class="text-md">Semester :</h4>
+                        <input type="text" id="nama" name="semester" class="form-control" placeholder="semester..."
+                            autocomplete="off" value="{{ $dtusers->semester }}">
                     </div>
                     <div class="form-group">
                         <h4 class="text-md">Saldo :</h4>

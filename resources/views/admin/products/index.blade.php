@@ -14,14 +14,6 @@
 @section('content')
     <div class="content-header">
 
-        @if (session('status'))
-            <div class="alert alert-danger text-white alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                {{-- <h5><i class="icon fas fa-check"></i> Alert!</h5> --}}
-                {{ session('status') }}
-            </div>
-        @endif
-
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
@@ -86,7 +78,7 @@
                                                     <button class="ml-2 btn btn-danger mt-1" style="width:45px" type="submit"><span class="fas fa-trash"></span></button>
                                                 </form>
                                                 <a href="{{ auth()->user()->role == 'Admin' ? route('admin.products.edit', $item->id) : route('dashboardSeller.admin.products.edit', $item->id) }}" class="btn btn-secondary ml-2 mt-1" style="width:45px" type="submit"><span class="fas fa-edit"></a>
-                                                <a href="" class="btn btn-primary ml-2 mt-1" style="width:45px" type="submit"><span class="fas fa-eye"></a>
+                                                <a href="{{ auth()->user()->role == 'Admin' ? route('admin.products.view', $item->id) : route('dashboardSeller.admin.products.view', $item->id) }}" class="btn btn-primary ml-2 mt-1" style="width:45px" type="submit"><span class="fas fa-eye"></a>
                                             </td>
                                         </tr>
                                     @endforeach

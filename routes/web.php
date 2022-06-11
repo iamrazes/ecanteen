@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -39,10 +40,23 @@ Route::get('/service', function () {
 
 // App
 Route::get('/app', [AppController::class, 'index'])->name('app');
-
 Route::prefix('app')->group(function () {
     Route::get('/products/{category}/{name}', [AppController::class, 'show'])->name('show');
 });
+
+// Profile
+Route::prefix('profile')->middleware(['auth'])->group(function () {
+
+    // Database
+    Route::resource('/profile', ProfileController::class)->names([
+        'show'=>'profile',
+    ]);
+});
+
+Route::get('/profile', function () {
+    return view('app.profile');
+})->middleware(['auth'])->name('profile');
+
 
 // Admin
 Route::prefix('dashboard')->middleware(['auth', 'AdminOnly'])->group(function () {
@@ -54,7 +68,9 @@ Route::prefix('dashboard')->middleware(['auth', 'AdminOnly'])->group(function ()
         'store'=>'admin.users.save',
         'destroy'=>'admin.users.destroy',
         'edit'=>'admin.users.edit',
-        'update'=>'admin.users.update'
+        'index'=>'users',
+        'create'=>'admin.users.create',
+        'show'=>'admin.users.view',
     ]);
 
     Route::resource('/products', ProductController::class)->names([
@@ -63,7 +79,8 @@ Route::prefix('dashboard')->middleware(['auth', 'AdminOnly'])->group(function ()
         'store'=>'admin.products.save',
         'destroy'=>'admin.products.destroy',
         'edit'=>'admin.products.edit',
-        'update'=>'admin.products.update'
+        'update'=>'admin.products.update',
+        'show'=>'admin.products.view'
     ]);
 
     // Route::resource('/users-create', [UserController::class, 'create'])->names('admin.users.create');
@@ -96,7 +113,8 @@ Route::prefix('dashboardSeller')->middleware(['auth', 'SellerPermission'])->name
         'store'=>'admin.products.save',
         'destroy'=>'admin.products.destroy',
         'edit'=>'admin.products.edit',
-        'update'=>'admin.products.update'
+        'update'=>'admin.products.update',
+        'show'=>'admin.products.view'
     ]);
 
 });

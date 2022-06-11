@@ -46,6 +46,10 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
             'role' => $request->role,
             'saldo' => $request->saldo,
+            'phone' => $request->phone,
+            'jurusan' => $request->jurusan,
+            'fakultas' => $request->fakultas,
+            'semester' => $request->semester,
             ]);
 
         return redirect()->route('users')->with('status', 'Data has been Added!');
@@ -59,7 +63,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $dtusers = User::findOrFail($id);
+        return view('admin.users.view',compact('dtusers'));
     }
 
     /**
@@ -97,6 +102,10 @@ class UserController extends Controller
            'password' => Hash::make($request->password),
            'role' => $request->role,
            'saldo' => $request->saldo,
+           'phone' => $request->phone,
+           'jurusan' => $request->jurusan,
+           'fakultas' => $request->fakultas,
+           'semester' => $request->semester,
            ]);
 
        return redirect()->route('users')->with('status', 'Data has been Updated!');
