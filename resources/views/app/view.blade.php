@@ -51,7 +51,7 @@
                 <p class="font-semibold text-[#72c2ff] mt-4">Rekomendasi</p>
                 <div class="flex flex-wrap gap-2 lg:gap-4 mt-4 justify-center">
                     @foreach ( $productsRecommended as $product)
-                    <a href="{{route('show', ['category' => $product->category, 'name' => $product->name])}}" class="w-24 h-24 md:w-24 md:h-24 lg:w-32 lg:h-32">
+                    <a href="{{route('show', ['category' => $product->category, 'id' => $product->id, 'name' => $product->name])}}" class="w-24 h-24 md:w-24 md:h-24 lg:w-32 lg:h-32">
                         <img src="{{ asset('storage/ProductCoverImages/' . $product->cover) }}" class="rounded-md w-32 h-24 lg:h-32 object-cover hover:bg-blue-100 " alt="">
                     </a>
                     @endforeach

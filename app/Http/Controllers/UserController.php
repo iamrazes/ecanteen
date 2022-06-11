@@ -38,7 +38,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'nickname' => $request->nickname,
             'email' => $request->email,
@@ -52,7 +52,12 @@ class UserController extends Controller
             'semester' => $request->semester,
         ]);
 
-        return redirect()->route('users')->with('status', 'Data has been Added!');
+        if ($user) {
+            return redirect()->route('users')->with('status', 'Data has been Added!');
+        } else {
+            return redirect()->route('users')->with('error', 'Something went wrong!');
+        }
+
     }
 
     /**
@@ -95,7 +100,11 @@ class UserController extends Controller
             ]);
         }
 
-        $dtusers = User::findOrFail($id);
+        $dtusers = User::find($id);
+
+        if (!$dtusers) {
+            return redirect()->route('users')->with('error', 'Something went wrong!');
+        }
 
         $dtusers->update([
             'name' => $request->name,
@@ -116,7 +125,11 @@ class UserController extends Controller
             ]);
         }
 
-        return redirect()->route('users')->with('status', 'Data has been Updated!');
+        if ($dtusers) {
+            return redirect()->route('users')->with('status', 'Data has been Added!');
+        } else {
+            return redirect()->route('users')->with('error', 'Something went wrong!');
+        }
     }
 
     /**

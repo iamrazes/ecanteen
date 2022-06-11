@@ -41,7 +41,7 @@ Route::get('/service', function () {
 // App
 Route::get('/app', [AppController::class, 'index'])->name('app');
 Route::prefix('app')->group(function () {
-    Route::get('/products/{category}/{name}', [AppController::class, 'show'])->name('show');
+    Route::get('/products/{category}/{id}/{name}', [AppController::class, 'show'])->name('show');
 });
 
 // Profile

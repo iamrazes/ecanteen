@@ -15,10 +15,18 @@
 <div class="content-header">
 
     @if (session('status'))
-        <div class="alert alert-danger text-white alert-dismissible">
+        <div class="alert alert-success text-white alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
             {{-- <h5><i class="icon fas fa-check"></i> Alert!</h5> --}}
             {{ session('status') }}
+        </div>
+    @endif
+
+    @if (session('error'))
+        <div class="alert alert-danger text-white alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+            {{-- <h5><i class="icon fas fa-check"></i> Alert!</h5> --}}
+            {{ session('error') }}
         </div>
     @endif
 

@@ -50,7 +50,7 @@
                                 <p class="px-2 pt-1 pb-2 font-bold text-[14px] text-[#72c2ff]">Rp. {{ number_format($product->price, 0, '.','.'),$product->price}}</p>
                                 <div class="flex flex-wrap justify-center mb-2 mt-3 mx-2">
                                     <a
-                                        href="{{route('show', ['category' => $product->category, 'name' => $product->name])}}"
+                                        href="{{route('show', ['category' => $product->category, 'id' => $product->id, 'name' => $product->name])}}"
                                         class="flex items-center justify-center bg-gradient-to-r from-[#72c2ff] to-[#7277ff] hover:bg-white text-white text-sm rounded-md h-[32px] w-[128px]"><span class="fa fa-shopping-cart"></span>
                                     </a>
                                 </div>
@@ -83,7 +83,7 @@
                                 <p class="px-2 pt-1 pb-2 font-bold text-[14px] text-[#72c2ff]">Rp. {{number_format($product->price, 0, '.','.'),$product->price}}</p>
                                 <div class="flex flex-wrap justify-center mb-2 mt-3 mx-2">
                                     <a
-                                        href="{{route('show', ['category' => $product->category, 'name' => $product->name])}}"
+                                        href="{{route('show', ['category' => $product->category, 'id' => $product->id, 'name' => $product->name])}}"
                                         class="flex items-center justify-center bg-gradient-to-r from-[#72c2ff] to-[#7277ff] text-white text-sm rounded-md h-[32px] w-[128px]"><span class="fa fa-shopping-cart"></span>
                                     </a>
                                 </div>
@@ -116,7 +116,7 @@
                                 <p class="px-2 pt-1 pb-2 font-bold text-[14px] text-[#72c2ff]">Rp. {{number_format($product->price, 0, '.','.'), $product->price}}</p>
                                 <div class="flex flex-wrap justify-center mb-2 mt-3 mx-2">
                                     <a
-                                        href="{{route('show', ['category' => $product->category, 'name' => $product->name])}}"
+                                        href="{{route('show', ['category' => $product->category, 'id' => $product->id, 'name' => $product->name])}}"
                                         class="flex items-center justify-center bg-gradient-to-r from-[#72c2ff] to-[#7277ff] text-white text-sm rounded-md h-[32px] w-[128px]"><span class="fa fa-shopping-cart"></span>
                                     </a>
                                 </div>

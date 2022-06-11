@@ -56,10 +56,10 @@ class AppController extends Controller
      * @param  \App\Models\App  $app
      * @return \Illuminate\Http\Response
      */
-    public function show($category, $name)
+    public function show($category, $id, $name)
     {
-        $product = Product::where(['category' => $category, 'name' => $name])->first();
-        $productsRecommended = Product::where('id', '!=', $product->id)->inRandomOrder()->limit(6)->get();
+        $product = Product::where(['category' => $category, 'id' => $id, 'name' => $name])->first();
+        $productsRecommended = Product::where('id', '!=', $product->id)->where('status' , 'Available')->inRandomOrder()->limit(6)->get();
         return view('app.view',compact('product','productsRecommended'));
 
     }
