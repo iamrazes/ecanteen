@@ -45,14 +45,6 @@ Route::prefix('app')->group(function () {
 });
 
 // Profile
-Route::prefix('profile')->middleware(['auth'])->group(function () {
-
-    // Database
-    Route::resource('/profile', ProfileController::class)->names([
-        'show'=>'profile',
-    ]);
-});
-
 Route::get('/profile', function () {
     return view('app.profile');
 })->middleware(['auth'])->name('profile');
