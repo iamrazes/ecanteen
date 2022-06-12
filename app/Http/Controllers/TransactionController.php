@@ -173,12 +173,6 @@ class TransactionController extends Controller
         ]);
 
         return back();
-
-        // 1. Kurangi saldo penjual
-
-        // 2. Kembalikan saldo pembeli
-
-        // 3. kembalikan stock product
     }
 
 

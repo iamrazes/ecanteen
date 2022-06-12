@@ -53,7 +53,7 @@
                                         type="submit"><span class="fa fa-shopping-cart pr-2"></span>BELI
                                         SEKARANG</button>
                                 </form>
-                                <a href="{{ route('app') }}" class="text-sm mt-2 text-gray-400">Kembali ke Beranda</a>
+                                <a href="{{ route('app') }}" class="text-sm mt-2 text-gray-600 hover:text-blue-400">Kembali ke Beranda</a>
                             </div>
                         </div>
                     </div>

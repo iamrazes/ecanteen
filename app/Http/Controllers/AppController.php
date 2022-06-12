@@ -17,15 +17,14 @@ class AppController extends Controller
      */
     public function index()
     {
-        $productsNewest = Product::where('status', 'Available')->latest()->limit(5)->get();
-        $foods = Product::where(['category' => 'Makanan', 'status' => 'Available'])->inRandomOrder()->limit(5)->get();
-        $drinks = Product::where(['category' => 'Minuman', 'status' => 'Available'])->inRandomOrder()->limit(5)->get();
+        $productsNewest = Product::where('status', 'Available')->latest()->limit(4)->get();
+        $foods = Product::where(['category' => 'Makanan', 'status' => 'Available'])->inRandomOrder()->limit(4)->get();
+        $drinks = Product::where(['category' => 'Minuman', 'status' => 'Available'])->inRandomOrder()->limit(4)->get();
 
         // where([
         // 'category' => 'makanan',
         // 'status' => 'available'
         // ]);
-
         return view('app',compact('productsNewest', 'foods', 'drinks'));
     }
 

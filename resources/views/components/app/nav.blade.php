@@ -11,7 +11,7 @@
             <div class="flex justify-center -mt-3 grow mb-1 px-2 md:mt-1">
                 <input type="text" placeholder=""
                     class="px-2 rounded-lg text-sm border-white text-slate-500 h-[32px] w-[300px] md:w-[400px] lg:w-[600px] object-cover mx-2">
-                <button class="text-lg fa fa-search hover:text-slate-200 transition delay-50 duration-300"></button>
+                <button class="text-lg fa fa-search hover: transition delay-50 duration-300"></button>
             </div>
 
             <!-- Navigation Button -->
@@ -21,15 +21,15 @@
                         <div class="flex flex-row md:flex-col-reverse gap-2 justify-between mb-1 mt-2">
                             <div class=" md:invisible">
                                 <p class="text-sm">Halo, Kak <span
-                                        class="font-semibold hover:text-slate-200 transition delay-50 duration-300 "><a
+                                        class="font-semibold hover: transition delay-50 duration-300 "><a
                                             href="{{ route('profile') }}">{{ Auth::user()->nickname }}</a></span></p>
                             </div>
                             <div class="flex justify-center gap-6">
-                                <a href="{{ route('transactions') }}" class="text-lg fa fa-shopping-cart hover:text-slate-200 transition delay-50 duration-300"></a>
-                                <a href="{{ route('profile') }}" class="text-lg fa fa-user hover:text-slate-200 transition delay-50 duration-300"></a>
+                                <a href="{{ route('transactions') }}" class="text-lg fa fa-shopping-cart hover: transition delay-50 duration-300"></a>
+                                <a href="{{ route('profile') }}" class="text-lg fa fa-user hover: transition delay-50 duration-300"></a>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <a href="{{ route('logout') }}" class=" text-lg fa fa-right-from-bracket hover:text-slate-200 transition delay-50 duration-300" onclick="event.preventDefault();
+                                    <a href="{{ route('logout') }}" class=" text-lg fa fa-right-from-bracket hover: transition delay-50 duration-300" onclick="event.preventDefault();
                                                         this.closest('form').submit();">
                                     </a>
                                 </form>

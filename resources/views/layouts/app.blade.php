@@ -13,7 +13,7 @@
     @yield('head')
 </head>
 
-<body class="text-sm text-slate-600">
+<body class="text-slate-600">
 
     <x-app.nav />
 
