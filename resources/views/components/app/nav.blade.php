@@ -25,7 +25,7 @@
                                             href="{{ route('profile') }}">{{ Auth::user()->nickname }}</a></span></p>
                             </div>
                             <div class="flex justify-center gap-6">
-                                <a href="" class="text-lg fa fa-shopping-cart hover:text-slate-200 transition delay-50 duration-300"></a>
+                                <a href="{{ route('transactions') }}" class="text-lg fa fa-shopping-cart hover:text-slate-200 transition delay-50 duration-300"></a>
                                 <a href="{{ route('profile') }}" class="text-lg fa fa-user hover:text-slate-200 transition delay-50 duration-300"></a>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf

@@ -57,6 +57,9 @@ Route::get('/profile', function () {
 
 Route::get('/transaction', [TransactionController::class, 'index'])->name('transactions');
 Route::post('/transaction', [TransactionController::class, 'store'])->name('transactions.store');
+Route::post('/transaction/accept', [TransactionController::class, 'pesananDiterima'])->name('transactions.diterima');
+Route::post('/transaction/success', [TransactionController::class, 'pesananBerhasil'])->name('transactions.berhasil');
+Route::post('/transaction/failed', [TransactionController::class, 'pesananDibatalkan'])->name('transactions.dibatalkan');
 
 // History
 Route::get('/history', function () {

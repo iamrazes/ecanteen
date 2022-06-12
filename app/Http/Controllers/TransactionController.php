@@ -21,12 +21,16 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transactions = Transaction::where('buyer_id', Auth::user()->id)->get();
+        $transactions = Transaction::where('buyer_id', Auth::user()->id)->where('status', '!=', 'Berhasil')->where('status', '!=', 'Dibatalkan')->get();
+        // $transactions = Auth::user()->transactions;
+        // $transactions = Transaction::where('status', '!=', "Berhasil")->get();
 
-        return view('app.transaction',compact('transactions'));
+        $sellerTransactions = Transaction::where('status', '!=', "Berhasil")->where('status', '!=', 'Dibatalkan')->get();
+
+        return view('app.transaction', compact('transactions', 'sellerTransactions'));
     }
 
-    /**
+    /**{{  }}
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -115,14 +119,61 @@ class TransactionController extends Controller
         $product = Product::findOrFail($request->product_id);
         $transaction = Transaction::findOrFail($request->transaction_id);
 
+        $transaction->update([
+            'status' => 'Berhasil'
+        ]);
+
+        return back();
+    }
+
+    public function pesananDiterima(Request $request)
+    {
+        // 1. Tambahkan saldo penjual
+        $product = Product::findOrFail($request->product_id);
+        $transaction = Transaction::findOrFail($request->transaction_id);
+
         $seller = User::findOrFail($product->user_id);
         $seller->update([
             'saldo' => $seller->saldo + $transaction->price
         ]);
+
+        $transaction->update([
+            'status' => 'Diproses'
+        ]);
+
+        return back();
     }
 
     public function pesananDibatalkan(Request $request)
     {
+        $product = Product::findOrFail($request->product_id);
+        $transaction = Transaction::findOrFail($request->transaction_id);
+
+        $seller = User::findOrFail($product->user_id);
+        $buyer = User::findOrFail($transaction->buyer_id);
+
+        if ($transaction->status == 'Dipesan' || $transaction->status == 'Diproses') {
+            $seller->update([
+                'saldo' => $seller->saldo - $transaction->price
+            ]);
+        }
+
+        if ($transaction->status == 'Dipesan' || $transaction->status == 'Diproses') {
+            $buyer->update([
+                'saldo' => $buyer->saldo + $transaction->price
+            ]);
+        }
+
+        $transaction->update([
+            'status' => 'Dibatalkan'
+        ]);
+
+        $product->update([
+            'stock' => $product->stock + 1
+        ]);
+
+        return back();
+
         // 1. Kurangi saldo penjual
 
         // 2. Kembalikan saldo pembeli
