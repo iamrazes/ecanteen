@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -49,6 +50,18 @@ Route::get('/profile', function () {
     return view('app.profile');
 })->middleware(['auth'])->name('profile');
 
+// Transaction
+// Route::get('/transaction', function () {
+//     return view('app.transaction');
+// })->name('transactions');
+
+Route::get('/transaction', [TransactionController::class, 'index'])->name('transactions');
+Route::post('/transaction', [TransactionController::class, 'store'])->name('transactions.store');
+
+// History
+Route::get('/history', function () {
+    return view('app.history');
+});
 
 // Admin
 Route::prefix('dashboard')->middleware(['auth', 'AdminOnly'])->group(function () {

@@ -13,13 +13,23 @@ return new class extends Migration
      *
      * @return void
      */
+
     public function up()
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->string('invoice')->unique();
-            $table->foreignIdFor(User::class);
+            $table->integer('buyer_id');
+            $table->integer('seller_id');
             $table->foreignIdFor(Product::class);
+            $table->double('price');
+            $table->enum('status',['Dipesan','Diproses','Berhasil','Dibatalkan']);
+
+            // Dipesan = Transaksi berjalan
+            // Diproses = Transaksi di konfirmasi (berlanjut)
+            // Berhasil = Transaksi Selesai
+            // Dibatalkan = Transaksi Batal
+
             $table->timestamps();
         });
     }

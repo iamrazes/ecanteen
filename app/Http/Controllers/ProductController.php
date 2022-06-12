@@ -65,6 +65,7 @@ class ProductController extends Controller
             'description'=> $request->description,
             'cover'=> $imgName,
             'status'=> $request->status,
+            'user_id'=> Auth::user()->id,
             ]);
 
         if (Auth::user()->role == 'Admin') return redirect()->route('products')->with('status', 'Data has been Added!');

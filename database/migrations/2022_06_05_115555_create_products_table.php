@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');  //Uploader
             $table->string('name');
             $table->enum('category', ['Makanan', 'Minuman', 'Lainnya']);
             $table->string('price');
