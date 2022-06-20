@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    <title>eCanteen - View a Product</title>
+    <title>eCanteen - View a User</title>
 @endsection
 
 @section('head')
@@ -17,13 +17,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">PRODUCTS</h1>
+                    <h1 class="m-0">SUBMISSIONS</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
                         <li class="breadcrumb-item active">Database</li>
-                        <li class="breadcrumb-item active">Products - View</li>
+                        <li class="breadcrumb-item active">Submission - View</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -33,28 +33,27 @@
     <div class="content">
         <div class="card card-primary card-outline">
             <h3 class="mt-3 ml-4 card-title">You are viewing <span
-                    class="text-primary text-bold">{{ $products->name }}</span></h3>
+                    class="text-primary text-bold">{{ $submissions->name }}</span></h3>
             <div class="card-body">
 
-                <div action="{{ route('admin.products.view', $products->id) }}" class="mt-3 ">
+                <div action="{{ route('admin.users.view', $submissions->id) }}" class="mt-3 ">
 
                     <div>
-                        <div class="d-flex justify-content-center my-2">
-                            <img style="width:256px" src="{{ asset('storage/ProductCoverImages/' . $products->cover) }}" alt="">
-                        </div>
                         <div class="d-flex justify-content-between text-lg border px-2 py-1  my-2">Name : <span
-                                class="text-bold">{{ $products->name }}</span></div>
-                        <div class="d-flex justify-content-between text-lg border px-2 py-1  my-2">Stock : <span
-                                class="text-bold">{{ $products->stock }}</span></div>
+                                class="text-bold">{{ $submissions->name }}</span></div>
+                        <div class="d-flex justify-content-between text-lg border px-2 py-1  my-2">Product : <span
+                                class="text-bold">{{ $submissions->product }}</span></div>
                         <div class="d-flex justify-content-between text-lg border px-2 py-1  my-2">Price : <span
-                                class="text-bold">Rp.
-                                {{ number_format($products->price, 0, '.', '.'), $products->price }}</span></div>
+                                class="text-bold">{{ $submissions->price }}</span></div>
+                        <div class="d-flex justify-content-between text-lg border px-2 py-1  my-2">Whatsapp : <span
+                                class="text-bold">{{ $submissions->whatsapp }}</span></div>
                         <div class="border">
                             <div class="d-flex justify-content-between text-lg  px-2 py-1  my-2">Description : </div>
                             <div>
-                                <p class=" px-2 text-lg">{{ $products->description }}</p>
+                                <p class=" px-2 text-lg">{{ $submissions->description }}</p>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

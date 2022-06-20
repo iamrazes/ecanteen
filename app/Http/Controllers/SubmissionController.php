@@ -16,7 +16,8 @@ class SubmissionController extends Controller
      */
     public function index()
     {
-        return view('blog.submission');
+        $submissions = Submission::all();
+        return view('admin.submissions.index', compact('submissions'));
     }
 
     /**
@@ -39,14 +40,13 @@ class SubmissionController extends Controller
     {
         Submission::create([
             'name' => $request->name,
-            'product'=> $request->product,
-            'price'=> $request->price,
-            'whatsapp'=> $request->whatsapp,
-            'description'=> $request->description,
-            ]);
+            'product' => $request->product,
+            'price' => $request->price,
+            'whatsapp' => $request->whatsapp,
+            'description' => $request->description,
+        ]);
 
-
-        return view('blog.submission')->with('status', 'Terimakasih, Permintaan Anda telah kami terima!');
+        return redirect()->route('submission')->with('status', 'Terimakasih, Permintaan Anda telah kami terima!');
     }
 
     /**
@@ -55,9 +55,11 @@ class SubmissionController extends Controller
      * @param  \App\Models\Submission  $submission
      * @return \Illuminate\Http\Response
      */
-    public function show(Submission $submission)
+    public function show($id)
     {
-        //
+
+        $submissions = Submission::findOrFail($id);
+        return view('admin.submissions.view', compact('submissions'));
     }
 
     /**
@@ -89,8 +91,12 @@ class SubmissionController extends Controller
      * @param  \App\Models\Submission  $submission
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Submission $submission)
+    public function destroy($id)
     {
-        //
+        $submissions = Submission::findOrFail($id);
+
+        $submissions->delete();
+
+        return redirect()->route('submissions')->with('status', 'Data has been removed!');
     }
 }

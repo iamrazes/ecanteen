@@ -12,18 +12,110 @@
 @endsection
 
 @section('content')
+<div class="content-header">
 
-<div class="text-center pt-4">
-    <h1 class="font-weight-bold">
-        NOT AVAILABLE
-    </h1>
-    <h5>
-        Feature not yet availabe on the application.
-    </h5>
+    @if (session('status'))
+        <div class="alert alert-success text-white alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+            {{-- <h5><i class="icon fas fa-check"></i> Alert!</h5> --}}
+            {{ session('status') }}
+        </div>
+    @endif
 
+    @if (session('error'))
+        <div class="alert alert-danger text-white alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+            {{-- <h5><i class="icon fas fa-check"></i> Alert!</h5> --}}
+            {{ session('error') }}
+        </div>
+    @endif
+
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">SUBMISSIONS</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
+                    <li class="breadcrumb-item active">Database</li>
+                    <li class="breadcrumb-item active">Submissions</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
 </div>
+<!-- /.content-header -->
 
+<section class="content">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <!-- /.card -->
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Database for Submission</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Whatsapp</th>
+                                <th>Created at</th>
+                                <th>Tools</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($submissions as $item)
+                                <tr>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->product }}</td>
+                                    <td>{{ $item->price }}</td>
+                                    <td>{{ $item->whatsapp }}</td>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td class="flex row">
+                                        <form action="{{ route('blog.submission.destroy', $item->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="ml-2 btn btn-danger mt-1" style="width:45px" type="submit"><span class="fas fa-trash"></span></button>
+                                        </form>
+                                        <a href="{{ route('blog.submission.view', $item->id) }}" class="btn btn-primary ml-2 mt-1" style="width:45px" type="submit"><span class="fas fa-eye"></a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Whatsapp</th>
+                                <th>Created at</th>
+                                <th>Tools</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->
+</section>
 @endsection
+
 
 @section('script')
     <!-- DataTables  & Plugins -->

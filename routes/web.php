@@ -38,7 +38,9 @@ Route::get('/service', function () {
     return view('blog.service');
 })->name('service');
 
-Route::get('/submission', [SubmissionController::class, 'index'])->name('submission');
+Route::get('/submission', function () {
+    return view('blog.submission');
+})->name('submission');
 Route::post('/submission', [SubmissionController::class, 'create'])->name('blog.submission.create');
 Route::post('/submission', [SubmissionController::class, 'store'])->name('blog.submission.save');
 
@@ -71,10 +73,8 @@ Route::post('/transaction/failed', [TransactionController::class, 'pesananDibata
 
 // all
 Route::get('/app/all', [AllController::class, 'index'])->name('all');
-
 // all food
 Route::get('/app/all-food', [AllController::class, 'food'])->name('all');
-
 // all drink
 Route::get('/app/all-drink', [AllController::class, 'drink'])->name('all');
 
@@ -119,9 +119,12 @@ Route::prefix('dashboard')->middleware(['auth', 'AdminOnly'])->group(function ()
     Route::get('/posts', function () {
         return view('admin.posts.index');
     })->name('posts');
-    Route::get('/submissions', function () {
-        return view('admin.submissions.index');
-    })->name('submissions');
+
+    Route::get('/submissions',[SubmissionController::class, 'index'],
+     function () { return view('admin.submissions.index'); })->name('submissions');
+    Route::get('/submission', [SubmissionController::class, 'index'])->name('submissions');
+    Route::get('/submission/{id}', [SubmissionController::class, 'show'])->name('blog.submission.view');
+    Route::delete('/submission/{id}', [SubmissionController::class, 'destroy'])->name('blog.submission.destroy');
 });
 
 Route::prefix('dashboardSeller')->middleware(['auth', 'SellerPermission'])->name('dashboardSeller.')->group(function () {
