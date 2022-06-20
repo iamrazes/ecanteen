@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AllController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\SubmissionController;
 
 /*
@@ -66,10 +67,8 @@ Route::post('/transaction/accept', [TransactionController::class, 'pesananDiteri
 Route::post('/transaction/success', [TransactionController::class, 'pesananBerhasil'])->name('transactions.berhasil');
 Route::post('/transaction/failed', [TransactionController::class, 'pesananDibatalkan'])->name('transactions.dibatalkan');
 
-// History
-// Route::get('/history', function () {
-//     return view('app.history');
-// });
+//History
+Route::get('/history', [HistoryController::class, 'index'])->name('historys');
 
 // all
 Route::get('/app/all', [AllController::class, 'index'])->name('all');

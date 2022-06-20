@@ -30,7 +30,7 @@
 
                     </div>
                     <div class="flex flex-wrap gap-16 mt-12 justify-center">
-                        <a class="flex flex-col text-slate-200"><span class="fa fa-history text-6xl mb-1"></span>Riwayat</a>
+                        <a href="{{ route('historys') }}" class="flex flex-col hover:text-blue-300 transition"><span class="fa fa-history text-6xl mb-1"></span>Riwayat</a>
                         <a href="{{ route('transactions') }}" class="flex flex-col hover:text-blue-300 transition"><span
                                 class="fa fa-exchange text-6xl mb-1"></span>Transaksi</a>
                         <a class="flex flex-col text-slate-200"><span class="fa fa-gear text-6xl mb-1"></span>Settings</a>

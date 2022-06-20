@@ -10,6 +10,8 @@
     @if (Auth::user()->role == 'Buyer')
         <div class="flex justify-center">
             <div class="mx-auto my-auto mt-28 md:mt-20 lg:mt-24">
+
+                <h1 class="text-xl mb-2 mx-1 font-semibold">TRANSAKSI</h1>
                 {{-- loop --}}
                 @foreach ($transactions as $transaction)
                     <div class="rounded-lg shadow-lg px-4 py-4 my-2 bg-white">
@@ -53,8 +55,9 @@
         {{-- Tampilan Pedagang --}}
         <div class="flex justify-center">
             <div class="mx-auto my-auto mt-28 md:mt-20 lg:mt-24">
-                {{-- loop --}}
 
+                <h1 class="text-xl mb-2 mx-1 font-semibold">TRANSAKSI</h1>
+                {{-- loop --}}
                 @foreach ($sellerTransactions as $transaction)
                     <div class="rounded-lg shadow-lg px-4 py-4 bg-white my-2">
                         <div class="flex">
@@ -91,19 +94,19 @@
                             </div>
                         </div>
                         <div class="flex flex-row justify-center text-center mt-2 gap-2">
-                            <form action="{{ route('transactions.diterima') }}" method="POST" >
+                            <form action="{{ route('transactions.diterima') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $transaction->product->id }}">
                                 <input type="hidden" name="transaction_id" value="{{ $transaction->id }}">
                                 <button class="bg-blue-500 text-white rounded px-4 py-2">Terima</button>
                             </form>
-                            <form action="{{ route('transactions.berhasil') }}" method="POST" >
+                            <form action="{{ route('transactions.berhasil') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $transaction->product->id }}">
                                 <input type="hidden" name="transaction_id" value="{{ $transaction->id }}">
                                 <button class="bg-green-500 text-white rounded px-4 py-2">Berhasil</button>
                             </form>
-                            <form action="{{ route('transactions.dibatalkan') }}" method="POST" >
+                            <form action="{{ route('transactions.dibatalkan') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $transaction->product->id }}">
                                 <input type="hidden" name="transaction_id" value="{{ $transaction->id }}">
