@@ -14,7 +14,7 @@
                     </div>
                     <div class="flex flex-col text-center mt-8">
                         <span class="font-bold text-2xl">{{ Auth::user()->name }}</span>
-                        <span class="font-bold text-lg text-[#72c2ff]">{{ Auth::user()->nim }}</span>
+                        <span class="font-bold  mt-2 text-lg text-[#72c2ff]">{{ Auth::user()->nim }}</span>
                         <span class="flex justify-between font-bold my-2 rounded-lg border-2 px-2 py-2">
                             <span>SALDO :</span>
                             <span>Rp. {{ number_format(Auth::user()->saldo, 0, '.', '.'), Auth::user()->saldo }},-</span>

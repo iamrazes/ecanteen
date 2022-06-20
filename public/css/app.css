@@ -8428,6 +8428,10 @@ select {
   margin-top: auto;
   margin-bottom: auto;
 }
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -8456,6 +8460,22 @@ select {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+.my-20 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+.my-32 {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+.my-48 {
+  margin-top: 12rem;
+  margin-bottom: 12rem;
+}
+.mx-8 {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -8465,11 +8485,11 @@ select {
 .mt-28 {
   margin-top: 7rem;
 }
-.mt-2 {
-  margin-top: 0.5rem;
-}
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
 }
 .mt-3 {
   margin-top: 0.75rem;
@@ -8563,6 +8583,9 @@ select {
 }
 .-mr-2 {
   margin-right: -0.5rem;
+}
+.mt-48 {
+  margin-top: 12rem;
 }
 .block {
   display: block;
@@ -9126,6 +9149,10 @@ select {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -9150,10 +9177,6 @@ select {
 }
 .text-\[10px\] {
   font-size: 10px;
-}
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
 }
 .text-\[128px\] {
   font-size: 128px;
@@ -9274,10 +9297,6 @@ select {
 .text-slate-300 {
   --tw-text-opacity: 1;
   color: rgb(203 213 225 / var(--tw-text-opacity));
-}
-.text-slate-700 {
-  --tw-text-opacity: 1;
-  color: rgb(51 65 85 / var(--tw-text-opacity));
 }
 .text-red-600 {
   --tw-text-opacity: 1;
@@ -9632,6 +9651,16 @@ select {
     margin-bottom: 0px;
   }
 
+  .md\:my-32 {
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+  }
+
+  .md\:my-48 {
+    margin-top: 12rem;
+    margin-bottom: 12rem;
+  }
+
   .md\:mt-20 {
     margin-top: 5rem;
   }
@@ -9686,6 +9715,10 @@ select {
 
   .md\:mt-2 {
     margin-top: 0.5rem;
+  }
+
+  .md\:mt-32 {
+    margin-top: 8rem;
   }
 
   .md\:h-\[44px\] {
@@ -9834,8 +9867,23 @@ select {
     font-size: 1.5rem;
     line-height: 2rem;
   }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
 }
 @media (min-width: 1024px) {
+
+  .lg\:my-28 {
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+  }
+
+  .lg\:my-48 {
+    margin-top: 12rem;
+    margin-bottom: 12rem;
+  }
 
   .lg\:mt-24 {
     margin-top: 6rem;
@@ -9847,6 +9895,10 @@ select {
 
   .lg\:ml-4 {
     margin-left: 1rem;
+  }
+
+  .lg\:mt-28 {
+    margin-top: 7rem;
   }
 
   .lg\:h-\[200px\] {
