@@ -7,6 +7,8 @@ use App\Http\Controllers\AppController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AllController;
+use App\Http\Controllers\SubmissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +25,6 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
-Route::get('/submission', function () {
-    return view('blog.submission');
-})->name('submission');
 Route::get('/about', function () {
     return view('blog.about');
 })->name('about');
@@ -38,6 +37,10 @@ Route::get('/privacy', function () {
 Route::get('/service', function () {
     return view('blog.service');
 })->name('service');
+
+Route::get('/submission', [SubmissionController::class, 'index'])->name('submission');
+Route::post('/submission', [SubmissionController::class, 'create'])->name('blog.submission.create');
+Route::post('/submission', [SubmissionController::class, 'store'])->name('blog.submission.save');
 
 // App
 Route::get('/app', [AppController::class, 'index'])->name('app');
@@ -62,32 +65,41 @@ Route::post('/transaction/success', [TransactionController::class, 'pesananBerha
 Route::post('/transaction/failed', [TransactionController::class, 'pesananDibatalkan'])->name('transactions.dibatalkan');
 
 // History
-Route::get('/history', function () {
-    return view('app.history');
-});
+// Route::get('/history', function () {
+//     return view('app.history');
+// });
+
+// all
+Route::get('/app/all', [AllController::class, 'index'])->name('all');
+
+// all food
+Route::get('/app/all-food', [AllController::class, 'food'])->name('all');
+
+// all drink
+Route::get('/app/all-drink', [AllController::class, 'drink'])->name('all');
 
 // Admin
 Route::prefix('dashboard')->middleware(['auth', 'AdminOnly'])->group(function () {
 
     // Database
     Route::resource('/users', UserController::class)->names([
-        'index'=>'users',
-        'create'=>'admin.users.create',
-        'store'=>'admin.users.save',
-        'destroy'=>'admin.users.destroy',
-        'edit'=>'admin.users.edit',
-        'update'=>'admin.users.update',
-        'show'=>'admin.users.view',
+        'index' => 'users',
+        'create' => 'admin.users.create',
+        'store' => 'admin.users.save',
+        'destroy' => 'admin.users.destroy',
+        'edit' => 'admin.users.edit',
+        'update' => 'admin.users.update',
+        'show' => 'admin.users.view',
     ]);
 
     Route::resource('/products', ProductController::class)->names([
-        'index'=>'products',
-        'create'=>'admin.products.create',
-        'store'=>'admin.products.save',
-        'destroy'=>'admin.products.destroy',
-        'edit'=>'admin.products.edit',
-        'update'=>'admin.products.update',
-        'show'=>'admin.products.view'
+        'index' => 'products',
+        'create' => 'admin.products.create',
+        'store' => 'admin.products.save',
+        'destroy' => 'admin.products.destroy',
+        'edit' => 'admin.products.edit',
+        'update' => 'admin.products.update',
+        'show' => 'admin.products.view'
     ]);
 
     // Route::resource('/users-create', [UserController::class, 'create'])->names('admin.users.create');
@@ -115,15 +127,14 @@ Route::prefix('dashboard')->middleware(['auth', 'AdminOnly'])->group(function ()
 Route::prefix('dashboardSeller')->middleware(['auth', 'SellerPermission'])->name('dashboardSeller.')->group(function () {
 
     Route::resource('/products', ProductController::class)->names([
-        'index'=>'products',
-        'create'=>'admin.products.create',
-        'store'=>'admin.products.save',
-        'destroy'=>'admin.products.destroy',
-        'edit'=>'admin.products.edit',
-        'update'=>'admin.products.update',
-        'show'=>'admin.products.view'
+        'index' => 'products',
+        'create' => 'admin.products.create',
+        'store' => 'admin.products.save',
+        'destroy' => 'admin.products.destroy',
+        'edit' => 'admin.products.edit',
+        'update' => 'admin.products.update',
+        'show' => 'admin.products.view'
     ]);
-
 });
 
 Route::get('/dashboard', function () {
@@ -135,11 +146,11 @@ Route::get('/dashboard', function () {
         return view('dashboard');
     } else {
         if (Auth::user()->role == 'Seller')
-        return view('dashboard');
-        }
+            return view('dashboard');
+    }
     if (Auth::user()->role == 'Buyer') {
         return redirect()->route('app');
     }
-    })->middleware(['auth'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
