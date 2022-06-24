@@ -7,9 +7,9 @@
 @section('content')
 
 
-    @forelse ($transactions as $transaction)
-        {{-- Tampilan Pembeli --}}
-        @if (Auth::user()->role == 'Buyer')
+    {{-- Tampilan Pembeli --}}
+    @if (Auth::user()->role == 'Buyer')
+        @forelse ($transactions as $transaction)
             <div class="flex justify-center">
                 <div class="mx-auto my-auto mt-28 md:mt-20 lg:mt-24">
                     <h1 class="text-xl mb-2 mx-1 font-semibold">TRANSAKSI</h1>
@@ -27,8 +27,10 @@
                                         </p>
                                         <p class="text-[#72c2ff] font-semibold">Rp. <span>{{ $transaction->price }}</span>
                                         </p>
-                                        <p class="my-1">Pembeli : <span>{{ $transaction->buyer->name }}</span></p>
-                                        <p class="my-1">Tanggal : <span>{{ $transaction->created_at }}</span></p>
+                                        <p class="my-1">Pembeli : <span>{{ $transaction->buyer->name }}</span>
+                                        </p>
+                                        <p class="my-1">Tanggal : <span>{{ $transaction->created_at }}</span>
+                                        </p>
                                     </div>
                                     <div class="flex flex-col justify-center text-center gap-1">
                                         <p class="text-left">Status :</p>
@@ -58,10 +60,18 @@
                     @endforeach
                 </div>
             </div>
-        @endif
+
+        @empty
+            <div class="flex flex-col text-center items-center justify-center my-48 md:my-48 lg:my-48">
+                <h1 class="font-semibold  mx-8 text-3xl text-slate-400">TIDAK ADAK TRANSAKSI BERLANGSUNG</h1>
+                <p class="text-slate-400 mt-2">Segera berbelanja di eCanteen!</p>
+            </div>
+        @endforelse
+    @endif
 
 
-        @if (Auth::user()->role == 'Seller')
+    @if (Auth::user()->role == 'Seller')
+        @forelse ($sellerTransactions as $transaction)
             {{-- Tampilan Pedagang --}}
             <div class="flex justify-center">
                 <div class="mx-auto my-auto mt-28 md:mt-20 lg:mt-24">
@@ -82,7 +92,8 @@
                                         <div class="text-[#72c2ff] font-semibold">Rp.
                                             <span>{{ $transaction->price }}</span>
                                         </div>
-                                        <div class="my-1">Pembeli : <span>{{ $transaction->buyer->name }}</span>
+                                        <div class="my-1">Pembeli :
+                                            <span>{{ $transaction->buyer->name }}</span>
                                         </div>
                                         <div class="my-1">Tanggal : <span>{{ $transaction->created_at }}</span>
                                         </div>
@@ -128,13 +139,14 @@
                     @endforeach
                 </div>
             </div>
-        @endif
-    @empty
-        <div class="flex flex-col text-center items-center justify-center my-48 md:my-48 lg:my-48">
-            <h1 class="font-semibold  mx-8 text-3xl text-slate-400">TIDAK ADAK TRANSAKSI BERLANGSUNG</h1>
-            <p class="text-slate-400 mt-2">Segera berbelanja di eCanteen!</p>
-        </div>
-    @endforelse
+
+        @empty
+            <div class="flex flex-col text-center items-center justify-center my-48 md:my-48 lg:my-48">
+                <h1 class="font-semibold  mx-8 text-3xl text-slate-400">TIDAK ADAK TRANSAKSI BERLANGSUNG</h1>
+                <p class="text-slate-400 mt-2">Segera berbelanja di eCanteen!</p>
+            </div>
+        @endforelse
+    @endif
 
 
 @endsection

@@ -15,7 +15,7 @@ class HistoryController extends Controller
 
     $transactions = Transaction::where('buyer_id', Auth::user()->id)->where('status', '!=', 'Dipesan')->get();
 
-    $sellerTransactions = Transaction::where('status', '!=', 'Dipesan')->get();
+    $sellerTransactions = Transaction::where('seller_id', Auth::user()->id)->where('status', '!=', 'Dipesan')->get();
 
     return view('app.history', compact('transactions', 'sellerTransactions'));
     }
