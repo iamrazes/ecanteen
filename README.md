@@ -16,6 +16,11 @@ In one line cmd :
 
 `composer install && cp .env.example .env && php artisan storage:link && php artisan key:generate && php artisan migrate:fresh --seed`
 
+Additional command :
+- npm install
+- npm run dev, or
+- npm run build
+
 Login Credentials :
 
 Email : admin@example.com
