@@ -9,6 +9,7 @@ The project created with Laravel framework and Tailwind CSS for the css framewor
 
 ## Installation Guide
 Prerequsite :
+
 Create database named `wp-ecanteen`
 
 Command :
