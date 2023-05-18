@@ -13,6 +13,7 @@ eLibrary is website-based system for ecommerce local canteen. We aim to digitali
 - php artisan migrate:fresh --seed
 
 In one line cmd :
+
 `composer install && cp .env.example .env && php artisan storage:link && php artisan key:generate && php artisan migrate:fresh --seed`
 
 Additional command :
