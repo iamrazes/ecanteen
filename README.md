@@ -1,5 +1,4 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
-<p align="center"><a href="https://tailwindcss.com" target="_blank"><img src="https://i.postimg.cc/Z5ns5BtK/Tailwind-CSS-logo-svg.png" width="400"></a></p>
 
 ## About eCanteen
 
@@ -41,6 +40,8 @@ Password : password
 *Make sure that XAMPP/Laragon is turned on
 
 ## Screenshots
+
+<p align="center"><a target="_blank"><img src="[ecanteen1.png](https://postimg.cc/RWhSN1v3)" width="800"></a></p>
 
 ## About Laravel
 
