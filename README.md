@@ -8,7 +8,10 @@ eLibrary is website-based system for local canteen to do ecommerce. We aim to di
 The project created with Laravel framework and Tailwind CSS for the css framework.
 
 ## Installation Guide
+Prerequsite :
+Create database named `wp-ecanteen`
 
+Command :
 - composer install
 - cp .env.example .env
 - php artisan storage:link
