@@ -2,7 +2,7 @@
 
 ## About eCanteen
 
-eLibrary is a digitized canteen local store to help customer order their food within second. The system aim towards modernizing store with app to run it's business.
+eLibrary is website-based system for ecommerce local canteen. We aim to digitalize the transaction to reduce anything that maybe unnecessary and help people to instantly getting their food with ease.
 
 ## Installation Guide
 
@@ -13,7 +13,6 @@ eLibrary is a digitized canteen local store to help customer order their food wi
 - php artisan migrate:fresh --seed
 
 In one line cmd :
-
 `composer install && cp .env.example .env && php artisan storage:link && php artisan key:generate && php artisan migrate:fresh --seed`
 
 Additional command :
@@ -24,11 +23,11 @@ Additional command :
 Login Credentials :
 
 Email : admin@example.com
-
 Password : password
 
 *Make sure that XAMPP/Laragon is turned on
 
+## Screenshots
 
 ## About Laravel
 
