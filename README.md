@@ -4,6 +4,8 @@
 
 eLibrary is website-based system for local canteen to do ecommerce. We aim to digitalize the transaction to reduce anything that maybe unnecessary and help people to instantly getting their food with ease.
 
+The project created with Laravel framework and Tailwind CSS for the css framework.
+
 ## Installation Guide
 
 - composer install
