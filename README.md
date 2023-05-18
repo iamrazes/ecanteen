@@ -8,25 +8,34 @@ eLibrary is website-based system for local canteen to do ecommerce. We aim to di
 The project created with Laravel framework and Tailwind CSS for the css framework.
 
 ## Installation Guide
+Prerequsite :
 
+Create database named `ecanteen`
+
+
+Installation Commands :
 - composer install
 - cp .env.example .env
 - php artisan storage:link
 - php artisan key:generate
 - php artisan migrate:fresh --seed
 
+
 In one line cmd :
 
 `composer install && cp .env.example .env && php artisan storage:link && php artisan key:generate && php artisan migrate:fresh --seed`
+
 
 Additional command :
 - npm install
 - npm run dev, or
 - npm run build
 
+
 Login Credentials :
 
 Email : admin@example.com
+
 Password : password
 
 *Make sure that XAMPP/Laragon is turned on
