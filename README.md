@@ -2,7 +2,7 @@
 
 ## About eCanteen
 
-eLibrary is website-based system for local canteen to do ecommerce. We aim to digitalize the transaction to reduce anything that maybe unnecessary and help people to instantly getting their food with ease.
+eLibrary is a web-based platform designed to facilitate e-commerce for local canteens. Our goal is to streamline transactions, eliminating unnecessary steps and providing people with a quick and convenient way to order and enjoy their meals.
 
 The project created with Laravel framework and Tailwind CSS for the css framework.
 
