@@ -42,6 +42,7 @@ Password : password
 ## Screenshots
 
 <p align="center"><a target="_blank"><img src="https://i.postimg.cc/tp8WTMN8/ecanteen1.png" width="800"></a></p>
+<p align="center"><a target="_blank"><img src="https://i.postimg.cc/W37WJ9v2/ecanteen2.png" width="800"></a></p>
 
 ## About Laravel
 
